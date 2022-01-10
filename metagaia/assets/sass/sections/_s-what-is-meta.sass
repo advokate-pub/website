@@ -1,0 +1,80 @@
+@import "../var"
+@import "../mixin"
+
+.s-what-is-meta
+	.row-ctx
+		.col
+			position: relative
+		.img-coin
+			position: relative
+			&::before
+				content: ""
+				display: block
+				width: 100%
+				padding-top: 100%
+			.img
+				+abs-center
+				width: 140%
+	
+	.txt-meta-feature
+		&:not(:last-child)
+			margin-bottom: $margin
+		.txt
+			&-title
+				line-height: 1.2
+			&-desc
+				color: $color-white2
+	
+		&:nth-child(2)
+			margin-left: 10%
+		+bp(pc)
+			&:not(:last-child)
+				margin-bottom: $margin*2.5
+			.txt
+				&-desc
+					margin-left: 5%
+				
+	.txt-alert
+		display: inline-block
+		position: relative
+		margin-top: $margin*2
+		.img-alert
+			height: 200%
+			display: block
+			+abs-center
+			left: 45%
+			top: 65%
+		.txt
+			position: relative
+			width: 100%
+			font-size: 20px
+			line-height: 1.2
+			top: 40%
+		+bp(m)
+			.img-alert
+				display: none
+			
+			border: 1px solid $color-cyan
+			padding: 10px
+			.txt
+				+bg-gradient( rgba($color-cyan,0.4), rgba($color-cyan,0),135deg )
+				padding: 10px
+				padding-left: 55px
+				position: relative
+				text-align: left
+				&::before
+					content: ""
+					display: block
+					width: 40px
+					height: 40px
+					+bg-contain("img_alert2.png")
+					position: absolute
+					left: 8px
+					top: 50%
+					+trf( translate(0,-50%) )
+			
+		+bp(pc)
+			margin-top: $margin*5
+			text-align: center
+			.txt
+				font-size: 36px

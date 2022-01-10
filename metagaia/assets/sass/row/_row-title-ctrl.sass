@@ -1,0 +1,29 @@
+@import "../var"
+@import "../mixin"
+
+.row-title-ctrl
+	width: 100%
+	+flexbox
+	justify-content: space-between
+	align-items: center
+	.b-ctrl
+		.btn-prev
+			order: 1
+			margin-bottom: 8px
+		.btn-next
+			order: 2
+
+	+bp-max($bp-default)
+		margin-bottom: $margin
+		&._bottom_m
+			align-items: flex-end
+
+	+bp-min($bp-default)
+		margin-bottom: $margin-pc
+
+	&-desc
+		+bp-max($bp-default)
+			flex-direction: column
+			> *
+				width: 100%
+					

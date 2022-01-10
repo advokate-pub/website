@@ -1,0 +1,44 @@
+@import "../var"
+@import "../mixin"
+
+.row-circle
+	.col
+		+bp-max(md)
+			+bs-col-12(12)
+		+bp-range(md, $bp-default )
+			+bs-col-12(6)
+		+bp-min($bp-default)
+			align-items: stretch
+			padding-top: $margin-pc
+			padding-bottom: $margin-pc
+			&:not(:last-child)
+				border-right: 1px solid $color-line-light
+
+	.b-circle
+		line-height: 1.3
+		.box-img
+			margin: auto
+			.img-circle
+				padding-top: 100%
+				+border-radius(100%)
+				+bg-cover
+		.txt-circle
+			font-weight: bold
+			margin-bottom: 5px
+		+bp-max( $bp-default )
+			+flexbox
+			flex-direction: row
+			align-items: center
+			.box-img
+				width: 100px
+				
+			.box-ctx
+				width: calc( 100% - 100px - 30px)
+			
+		+bp-min( $bp-default )
+			max-width: 190px
+			margin-left: auto
+			margin-right: auto
+			text-align: center
+			.box-img
+				margin-bottom: $margin

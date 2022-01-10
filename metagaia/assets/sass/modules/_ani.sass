@@ -1,0 +1,102 @@
+@import "../var"
+@import "../mixin"
+
+$trf-offset: 30px
+
+.vp-asc
+	.txt-default-title
+		+trf( translate(0, $trf-offset))
+		+opacity(0)
+	.slick-arrow:not(.slick-disabled)
+		+opacity(0)
+	.b-slide
+		+trf( translate(0, $trf-offset))
+		+opacity(0)
+	&.is_visible
+		.txt-default-title
+			+trf( translate(0,0px))
+			+opacity(1)
+			+tran( 0.8s ease 0.1s )
+		.slick-arrow:not(.slick-disabled)
+			+opacity(1)
+			+tran( 0.8s ease 0.1s )
+		.b-slide
+			+trf( translate(0,0px))
+			+opacity(1)
+			+tran( 0.8s ease 0.1s )
+			@for $i from 1 through 40
+				&:nth-child( #{$i} )
+					+tran-delay( #{300ms * $i})
+
+.vp-fade
+	+trf( translate(0,$trf-offset))
+	+opacity(0)
+	&.is_visible
+		+trf( translate(0,0px))
+		+opacity(1)
+		+tran( 0.8s ease 0.1s )
+	
+.vp-ctx
+	.txt-breadcrumb, .txt-data, .txt-event-title
+		+trf( translate($trf-offset,0%))
+		+opacity(0)
+	
+	.max
+		+trf( translate(0,$trf-offset))
+		+opacity(0)
+	.box-title.deco-line
+		&::before
+			+trf( scaleY(0.5))
+			+opacity(0)
+			+trf-ori( top )
+	
+	&.is_visible
+		.txt-breadcrumb, .txt-data, .txt-event-title
+			+trf( translate(0,0px))
+			+opacity(1)
+			+tran( 0.8s ease 0.1s )
+		
+		.max
+			+trf( translate(0,0%))
+			+opacity(1)
+			+tran( 0.8s ease 0.1s )
+		.box-title.deco-line
+			&::before
+				+opacity(1)
+				+tran( 0.8s ease 0.1s )
+				+trf( scaleY(1))
+	
++keyframes( ani-scroll-down )
+	0%
+		background-position: 0px 0px
+	100%
+		background-position: 0px 80px
+	
++keyframes( ani-fadein ) 
+	0%
+		+opacity(0)
+	100%
+		+opacity(1)
+
++keyframes( ani-slidein )
+	0%
+		+trf( translate(-10%, 0) )
+		+opacity(0)
+	100%
+		+trf( translate(0%, 0) )
+		+opacity(1)
+
++keyframes( ani-slideout )
+	0%
+		+trf( translate(10%, 0) )
+		+opacity(0)
+	100%
+		+trf( translate(0%, 0) )
+		+opacity(1)
+
++keyframes( ani-arrow )
+	0%
+		background-position: 0 0 
+	100%
+		background-position: 50px 0px
+

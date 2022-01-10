@@ -1,0 +1,63 @@
+@import "../var"
+@import "../mixin"
+
+
+.txt
+	&-title
+		font-weight: bold
+		font-family: $font-family-title
+		letter-spacing: 1px
+	&-cyan
+		color: $color-cyan
+
+	&-default
+		&-title
+			font-weight: bold
+			font-family: $font-family-title
+			font-size: 45px
+			line-height: 1
+			text-transform: uppercase
+			margin-top: $margin*2
+			+txt-shadow( $txt-shadow-white )
+			.txt-cyan
+				+txt-shadow( $txt-shadow-white2 )
+				
+			+bp(pc)
+				font-size: 70px
+				text-align: center
+				.txt
+					display: inline-block
+					position: relative
+					&::before
+						content: attr(data-title)
+						display: block
+						width: 100%
+						height: 50%
+						+abs-center
+						+filter( blur(20px))
+						+bg-gradient( $color-white, rgba($color-white,0), 135deg, 0%, 70%)
+						+opacity(0.5)
+						+b2
+				.txt-cyan
+					+bg-gradient( $color-green, $color-cyan, 135deg, 0%, 70%)
+					-webkit-background-clip: text
+					-webkit-text-fill-color: transparent
+		&-desc
+			font-size: 18px
+			font-weight: bold
+			+bp(pc)
+				text-align: center
+				font-size: 24px
+
+		
+			
+		&-subtitle
+			font-weight: bold
+			font-family: $font-family-title
+			line-height: 1.2
+			font-size: 36px
+			+txt-shadow( $txt-shadow-white )
+
+			+bp(pc)
+				font-size: 56px
+		

@@ -1,0 +1,105 @@
+@import "../var"
+@import "../mixin"
+
+.swiper-container
+	overflow: visible
+.b-slider
+	position: relative
+	// default same height
+	.swiper
+		&-slide
+			height: auto
+			> *
+				height: 100%
+
+	.b-ctrl
+		+flexbox
+		flex-direction: row
+		justify-content: space-between
+		width: 100%
+		align-items: center
+		margin-top: $margin
+
+	&-upcoming
+		width: 100%
+		
+		//overflow: hidden
+		.swiper
+			&-slide
+				+opacity(0)
+				+tran(1s)
+				pointer-events: none
+				&-active
+					+opacity(1)
+					pointer-events: auto
+					.txt-default-subtitle
+						&::after
+							width: 100%
+							+bp(pc)
+								width: 150%
+					.txt-desc, .txt-default-subtitle .txt
+						+trf( translate(0%,0) skew(0deg))
+						+opacity(1)
+						+filter(blur(0px))
+		
+		.txt-default-subtitle
+			.txt
+				display: block
+				+trf( translate(-5%,0) skew(20deg))
+				+opacity(0)
+				+tran(0.5s)
+				+filter(blur(5px))
+		.txt-desc
+			+trf( translate(5%,0) skew(20deg))
+			+opacity(0)
+			+tran(0.5s 0.1s)
+			+filter(blur(5px))
+	
+		.box-ctrl
+			+bp(m)
+				width: 100%
+				+flexbox
+				justify-content: space-between
+				position: absolute
+				bottom: 100%
+				left: 0
+				padding-left: $margin
+				padding-right: $margin
+				z-index: 1
+			+bp(pc)
+				margin-top: $margin*3
+		.btn
+			&-ctrl
+				width: 20px
+				height: 50px
+				position: relative
+				display: inline-block
+				
+				&::before, &::after
+					content: ""
+					width: 0
+					height: 0
+					border-top: 12px solid transparent
+					border-bottom: 12px solid transparent
+					+abs-center
+					+tran(0.7s)
+				&::after
+					+filter( blur(10px))
+
+			&-prev
+				&::before,  &::after
+					border-right: 18px solid $color-cyan
+				&:hover
+					&::before,  &::after
+						border-right-color: $color-white
+			&-next
+				margin-left: 50px
+				&::before,  &::after
+					border-left: 18px solid $color-cyan
+				&:hover
+					&::before,  &::after
+						border-left-color: $color-white
+	
+			
+	
+				

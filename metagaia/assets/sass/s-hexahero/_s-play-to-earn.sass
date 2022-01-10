@@ -1,0 +1,30 @@
+@import "../var"
+@import "../mixin"
+
+		
+.s-play-to-earn
+	.img-title
+		max-width: 476px
+		+bp(m)
+			margin-bottom: $margin
+	.img-play-to-earn
+		width: 100%
+		&-pc
+			display: block
+			max-width: 1920px
+			margin: auto
+		&-m
+			display: none
+		+bp(pc)
+			&-pc
+				margin-bottom: -15%
+		+bp(m)
+			&-pc
+				display: none
+			&-m
+				display: block
+		
+	.box-title
+		max-width: 800px
+		margin: auto
+		text-align: center

@@ -1,0 +1,174 @@
+@import "../var"
+@import "../mixin"
+
+
+.modal
+	&-backdrop
+		background: $bg-overlay
+		&.show
+			+opacity(1)
+	&-dialog
+		display: none
+		margin: $margin
+	&-content
+		background: transparent
+		border: 0
+		img
+			+border-radius
+	&-header
+		padding: 0
+		border: 0
+		.modal-title
+			display: none
+
+	&-footer
+		text-align: left
+		border: 0
+
+.ekko-lightbox
+	display: flex !important
+	align-items: center
+	justify-content: center
+	padding-right: 0px !important
+	
+	.modal-body
+		padding: 0
+		
+
+	&-container
+		position: relative
+		> div.ekko-lightbox-item
+			position: absolute
+			top: 0
+			left: 0
+			bottom: 0
+			right: 0
+			width: 100%
+
+	iframe
+		width: 100%
+		height: 100%
+
+	
+
+
+	&-nav-overlay
+		z-index: 100
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		display: flex
+		a
+			z-index: 100
+			&.disabled
+				cursor: default
+				visibility: hidden
+		.btn
+			&-arrow
+				position: absolute
+				top: 50%
+				+trf( translate(0,-50%) )
+				cursor: pointer
+			&-prev
+				left: $margin
+			&-next
+				right: $margin
+			+bp-max(md)
+				&-arrow
+					position: fixed
+					top: auto
+					bottom: $margin
+					+trf( translate(0, 0) )
+
+	a: hover
+		opacity: 1
+		text-decoration: none
+	
+	
+	
+		
+	.close
+		z-index: 19994
+		font-size: 0
+		width: $btn-height
+		height: $btn-height
+		position: fixed
+		right: $margin
+		top: $margin
+		+box-shadow( none )
+		background-color: $color-yellow
+		+border-radius(50%)
+		border: 0
+		padding: 0px
+		margin: auto
+		+opacity(1)
+		&::before
+			content: ""
+			+abs-center
+			+bg-contain("ico/ico_close.svg")
+			background-repeat: repeat
+
+			width: 30px
+			height: 30px
+
+			+tran
+		&:hover
+			&::before
+				background-position:  0 30px
+		+bp-min("md")
+			right: $margin*2
+			top: $margin*2
+
+		&::-moz-focus-inner
+			border: 0
+			padding: 0
+
+		&:hover, &:focus, &:active, &:visited
+			outline: none
+	// http: //tobiasahlin.com/spinkit/
+	&-loader
+		position: absolute
+		top: 0
+		left: 0
+		bottom: 0
+		right: 0
+		width: 100%
+
+		display: flex					 /* establish flex container */
+		flex-direction: column	/* make main axis vertical */
+		justify-content: center /* center items vertically, in this case */
+		align-items: center
+
+		> div
+			width: 40px
+			height: 40px
+
+			position: relative
+			text-align: center
+
+			> div
+				width: 100%
+				height: 100%
+				border-radius: 50%
+				background-color: #fff
+				opacity: 0.6
+				position: absolute
+				top: 0
+				left: 0
+
+				animation: sk-bounce 2.0s infinite ease-in-out
+				&:last-child
+					animation-delay: -1.0s
+				
+	.modal-dialog &-loader
+		> div > div
+			background-color: #333
+		
+	
++keyframes( sk-bounce )
+	0%, 100%
+		+trf( scale(0.0) )
+	50%
+		+trf( scale(1.0) )

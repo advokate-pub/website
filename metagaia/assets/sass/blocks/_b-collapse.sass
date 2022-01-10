@@ -1,0 +1,95 @@
+@import "../var"
+@import "../mixin"
+
+.b-collapse
+	&-toggle
+		position: relative
+		padding-right: 30px
+		cursor: pointer
+		line-height: 30px
+		&::before
+			content: ""
+			width: 20px
+			height: 100%
+			position: absolute
+			top: 0%
+			right: 0px
+			+bg-contain("ico/ico_arrow_down.svg")
+			+tran
+
+	&.expand
+		.b-collapse-toggle
+			&::before
+				+trf( rotate(180deg) )
+
+
+// faq
+.b-collapse-black
+	background: $color-black
+	+border-radius
+	color: $color-white
+	padding: $margin
+	&:not(:last-child)
+		margin-bottom: $margin
+	.b-collapse
+		&-toggle
+			padding-right: 50px
+			position: relative
+			&:hover
+				color: $color-yellow
+			&::before
+				display: none
+			.txt-title
+				line-height: normal
+				+tran
+			.box-btn
+				position: absolute
+				right: 0
+				top: 50%
+				+trf( translate(0,-50%) )
+				+tran
+				.btn
+					&-arrow
+						width: 35px
+						height: 35px
+					&-close
+						+abs-center
+						+opacity(0)
+						pointer-events: none
+		&-ctx
+			.box-ctx
+				line-height: 1.5
+				//p
+					line-height: normal
+			&::before
+				content: ""
+				display: block
+				height: $margin
+	&.expand
+		.b-collapse
+			&-toggle
+				color: $color-yellow
+				font-weight: bold
+				//.box-btn
+					+trf(  translate(0,-50%) rotate(90deg))
+				.btn
+					&-plus
+						+opacity(0)
+						pointer-events: none
+					&-close
+						+opacity(1)
+						pointer-events: auto
+	+bp-min(md)
+		padding: $margin-pc
+		.b-collapse
+			&-toggle
+				.txt-title
+					font-size: _px2em(18)
+				.box-btn
+					.btn
+						&-arrow
+							width: 40px
+							height: 40px
+			&-ctx
+				&::before
+					height: $margin-pc

@@ -1,0 +1,31 @@
+@import "../var"
+@import "../mixin"
+
+.nav-sub
+	li
+		a
+			font-weight: bold
+
+	+bp(nav-m)
+		margin-bottom: 1em
+		li
+			width: 100%
+			margin: 10px 0
+			a
+				+link-color($color-white, $color-cyan)
+			
+
+	+bp(nav-pc)
+		padding-left: $margin + 5px
+		padding-right: $margin + 5px
+		li
+			width: 100%
+			margin-top: 8px
+			margin-bottom: 8px
+			
+		a
+			display: block
+			+link-color($color-white, $color-cyan)
+			+tran
+		
+

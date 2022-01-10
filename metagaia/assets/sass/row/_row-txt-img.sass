@@ -1,0 +1,61 @@
+@import "../var"
+@import "../mixin"
+
+
+.row-txt-img
+	> .col
+		+bs-col-12(12)
+		&-img
+			&:nth-child(1)
+				.img-large
+					+expand-width("left")
+					+border-radius( 0 100em 100em 0)
+					
+			&:nth-child(2)
+				.img-large
+					+expand-width("right")
+					+border-radius( 100em 0 0 100em)
+	
+	+bp-max($bp-default)
+		> .col
+			&-img
+				order: 1
+			&-txt
+				order: 2
+	
+		.img-large
+			min-height: 0
+			margin-bottom: $margin*2
+		
+		.txt-default-desc + a
+			display: inline
+		.btn-circle
+			flex-direction: row-reverse
+			margin-left: auto
+			.ico
+				+trf( scale(-1) )
+				&::before
+					+trf( translate(-50%,-50%) rotate(180deg) )
+			.txt
+				margin-left: 0
+				margin-right: -18px
+			&:hover
+				.txt
+					+trf( translate(-10px, 0) )
+	
+	+bp-min($bp-default)
+		align-items: center
+		> .col
+			+bs-col-12(6)
+		
+	+bp-min(xl)
+		> .col
+			&-img
+				+bs-col-12(5)
+				
+			&-txt
+				+bs-col-12(7)
+				&:nth-child(1)
+					padding-right: percentage( 1 / 12 )
+				&:nth-child(2)
+					padding-left: percentage( 1 / 12 )

@@ -1,0 +1,192 @@
+@import "../var"
+@import "../mixin"
+
+.s-header
+	z-index: $zindex-menu
+	position: relative
+	.container
+		width: 100%
+		max-width: 1600px
+		padding-left: $margin*2
+		padding-right: $margin*2
+		
+	+bp("nav-m")
+		//height: $nav-height-m
+	+bp("nav-pc")
+		//height: $nav-height
+		+tran
+		&-wrapper
+			position: fixed
+			left: 0
+			top: 0
+			width: 100%
+			+tran
+
+		.container
+			+flexbox
+			+flex-direction(row)
+			+justify-content(space-between)
+			+align-items(center)
+			height: $nav-height
+			+tran(1s)
+
+		.s-header-wrapper
+			+tran
+			&::before
+				width: 100%
+				height: 200px
+				+bg-gradient(rgba($color-bg-blue,0), $color-bg-blue )
+				content: ""
+				display: block
+				position: absolute
+				left: 0
+				top: 0
+				z-index: -1
+				pointer-events: none
+				+noselect
+				+opacity(0)
+				+tran(1s)
+				.bg-hexahero &
+					+bg-gradient(rgba($color-bg-black,0), $color-bg-black )
+			
+		&:not(._shrink)
+			.s-header-wrapper
+				padding-top: 30px
+				padding-bottom: 30px
+				
+		
+		&._shrink, &:hover
+			.s-header-wrapper
+				&::before
+					+opacity(1)
+		&._shrink
+			//height: $nav-height
+			//.container
+				height: $nav-height
+	
+// logo-wrapper (logo, btn-menu) ----------------------------------------
+.logo-wrapper
+	.img-logo
+		display: block
+		
+	+bp("nav-m")
+		position: fixed
+		left: 0
+		top: 0
+		width: 100%
+		height: $nav-height-m
+		padding: 0 $margin
+		+flexbox
+		+justify-content(space-between)
+		+align-items(center)
+		z-index: $zindex-menu
+		+tran
+		&::before
+			width: 100%
+			height: 100px
+			+bg-gradient(rgba($color-bg-blue,0), $color-bg-blue )
+			content: ""
+			display: block
+			position: absolute
+			left: 0
+			top: 0
+			z-index: -1
+			pointer-events: none
+			+noselect
+			//+opacity(0)
+			+tran(1s)
+			.bg-hexahero &
+				+bg-gradient(rgba($color-bg-black,0), $color-bg-black )
+				
+		.img-logo
+			height: $nav-height-m - 36px
+
+	+bp("nav-pc")
+		.btn-menu
+			display: none
+		.img-logo
+			height: 40px
+
+
+// main-wrapper (nav-main, nav-ctrl) ----------------------------------------
+
+.main-wrapper
+	.box-ctx
+		+flexbox
+	+bp("nav-m")
+		background: $color-bg-blue
+		position: fixed
+		right: 0
+		top: 0
+		width: 100%
+		z-index: $zindex-menu - 1
+		+opacity(0)
+		pointer-events: none
+		+tran
+		._open_menu &
+			+opacity(1)
+			pointer-events: auto
+
+		.box-ctx
+			width: 100%
+			height: 100vh
+			padding: #{$nav-height-m+$margin} $margin*2 #{$nav-height-m+$margin} 
+			overflow: auto
+			+flex-direction(column)
+			justify-content: center
+			
+	+bp("nav-pc")
+		.nav-ctrl
+			+trf( translate(15px, 0) )
+			margin-bottom: 20px
+			margin-top: -10px
+			+tran
+			._shrink &
+				margin-bottom: 10px
+		.box-ctx
+			+flexbox
+			+flex-direction(column-reverse)
+			+align-items(flex-end)
+	
+	
+// has sub ----------------------------------------
+
+.ico-sub
+	width: 40px
+	height: 40px
+.has-sub
+	position: relative
+
+	+bp(nav-m)
+		&.expand
+			> a
+				color: $color-cyan
+			
+	+bp(nav-pc)
+		.box-sub
+			height: auto !important
+			display: block !important
+			position: absolute
+			top: 100%
+			left: 50%
+			pointer-events: none
+			+trf( translate(-50%, 10px) )
+			padding: 4px
+			border: 1px solid $color-cyan
+			
+			+opacity(0)
+			._win_load &
+				+tran
+			.nav-sub
+				min-width: 150px
+				+bg-gradient( rgba($color-cyan,0.8), rgba($color-cyan,0),135deg)
+			
+		&:hover
+			.box-sub
+				+opacity(1)
+				pointer-events: auto
+				+trf( translate(-50%,0%) )
+				.nav-ctrl &
+					+trf( translate(-50%,-14px) )
+		
+	

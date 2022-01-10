@@ -1,0 +1,76 @@
+@import "../var"
+@import "../mixin"
+
+.nav-main
+	> li
+		text-align: center
+		> a
+			font-weight: bold
+			text-transform: uppercase
+			font-family: $font-family-title
+			font-size: 20px
+			letter-spacing: 1px
+			display: block
+			padding-top: 10px
+			padding-bottom: 10px
+			
+			img
+				display: block
+				width: 200px
+				margin-bottom: -10px
+				+tran
+			&:hover
+				+txt-shadow($txt-shadow-white)
+				img
+					+trf( scale(1.05) )
+			
+	+bp("nav-m")
+		> li
+			width: 100%
+			> a
+				position: relative
+				display: inline-block
+				padding-top: 15px
+				padding-bottom: 15px
+				letter-spacing: 10px
+				+opacity(0)
+				._open_menu &
+					letter-spacing: 1px
+					+opacity(1)
+					+tran
+			@for $i from 1 through 10
+				&:nth-child(#{$i})
+					> a
+						+tran-delay( #{100ms* ($i - 1) } )
+	
+		//.ico-sub
+			width: 15px
+			height: 30px
+			display: block
+			position: absolute
+			left: 110%
+			top: 50%
+			+trf( translate(0,-50%) )
+			+tran
+			&::before, &::after
+				width: 10px
+				height: 2px
+				background: $color-cyan
+				+abs-center
+				content: ""
+				display: block
+			&::before
+				+tran
+			&::after
+				+trf( translate(-50%,-50%) rotate(90deg) )
+	
+	
+	+bp(nav-pc)
+		align-items: center
+		> li
+			> a
+				display: block
+				+tran
+	
+			&:not(:last-child)
+				margin-right: 30px

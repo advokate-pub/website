@@ -1,0 +1,76 @@
+@import "../var"
+@import "../mixin"
+
+
+.s-roadmap
+	position: relative
+	.p-default-title
+		margin-bottom: 0
+	.img-bg
+		width: 80%
+		left: auto
+		right: 0
+		top: -20%
+		+trf( translate(0,0%) )
+	
+		
+.row-roadmap
+	&-wrapper
+		position: relative
+		
+	.img-line
+		position: absolute
+		left: 0
+		pointer-events: none
+		+noselect
+
+	&-wrapper
+		width: 100vw
+		
+		&::before
+			content: ""
+			display: block
+			padding-top: 30%
+
+		.img-line
+			top: 50%
+			width: 100%
+			+trf( translate(0,-50%) )
+
+	.b-time
+		position: absolute
+		width: 24%
+		height: 40%
+		+flexbox
+		flex-direction: column
+		&1, &3
+			top: 0
+			justify-content: flex-end
+		&2, &4
+			bottom: 0
+		@for $i from 1 through 4
+			&#{$i}
+				left: 10% + 20%*($i - 1)
+
+	.txt-time
+		color: $color-cyan
+		font-family: $font-family-title
+		font-weight: bold
+	.txt-title
+		font-size: 20px
+		line-height: 1
+		+bp(pc)
+			font-size: 28px
+
+
+	.can-not-skrollr &
+		overflow: auto
+		margin-left: -$margin*2
+		margin-right: -$margin*2
+		padding: $margin*2
+		margin-top: $margin*2
+		&-wrapper
+			width: 1000px
+			
+	
+

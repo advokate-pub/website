@@ -1,0 +1,32 @@
+@import "../var"
+@import "../mixin"
+	
+.s-what-is-metagaia
+	position: relative
+	.img-bg
+		top: 20%
+	.box-video-frame
+		position: relative
+		width: 100%
+		.img-frame
+			width: 100%
+			pointer-events: none
+			+noselect
+
+		.b-video
+			position: absolute
+			width: 84.7%
+			+abs-center
+			left: 50.6%
+
+	+bp(m)
+		.b-feature
+			padding-left: $margin
+			padding-right: $margin
+			margin-top: $margin*2
+	+bp(pc)
+		margin-top: 20vh
+		.b-feature
+			padding-left: $margin*2
+			margin-top: $margin*4
+			margin-bottom: $margin*4

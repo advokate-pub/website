@@ -1,0 +1,73 @@
+@import "../var"
+@import "../mixin"
+
+.s-hero
+	position: relative
+	.img-bg
+		
+	.container
+		position: relative
+		text-align: center
+		+flexbox
+		align-items: center
+		justify-content: center
+		min-height: 100vh
+
+	.box-planet
+		position: relative
+
+	.box-title
+		+abs-center
+		width: 100%
+		.img-metagaia
+			width: 100%
+			max-width: 800px
+		.txt-tagline
+			font-size: 24px
+			margin-top: -0.2em
+			line-height: 1.2
+			width: 100%
+			+txt-shadow
+
+		+bp(pc)
+			top: 50%
+			.txt-tagline
+				margin-top: -0.8em
+				font-size: 40px
+			
+	.img-planet
+		@media (orientation: portrait)
+			width: 100%
+			+trf( scale(1.5))
+
+.s-hero, .s-hexahero-hero
+	.box-powered-by
+		position: absolute
+		left: 50%
+		bottom: $margin*3
+		width: 100%
+		+trf( translate(-50%,0) )
+		text-align: center
+		+bp(m)
+			//bottom: 110px
+			bottom: $margin*2
+
+
+		.txt-powered-by
+			color: $color-white2
+			font-size: 24px
+			+bp(m)
+				font-size: 16px
+			+bp(pc)
+				margin-bottom: 10px
+
+		.img-logo
+			width: 200px
+			margin-left: $margin
+			margin-right: $margin
+
+			+bp(m)
+				width: 130px
+				margin: auto
+				display: inline-block
+				margin: 8px 15px

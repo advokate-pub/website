@@ -1,0 +1,255 @@
+@import "../var"
+@import "../mixin"
+
+.selectric-is-native, .selectric-is-native select
+	position: absolute
+	left: 0
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	z-index: 1
+	opacity: 0
+
+.selectric-items
+	+box-shadow
+
+
+// basic
+.selectric-form-select, .selectric-select-subscript
+	.selectric
+		border: 0
+		background: transparent
+		border: 1px solid $color-line-light
+		+border-radius($border-radius-form)
+		+flexbox
+		+align-items(center)
+		.label
+			font-size: _px2em(16)
+			width: 100%
+			text-overflow: ellipsis
+			padding: 15px 0
+			margin-right: $form-item-height
+			line-height: normal
+			height: auto
+			margin-left: 0
+			
+		.button
+			width: $form-item-height
+			height: $form-item-height
+			background-color: transparent
+			+bg-contain("ico/ico_arrow_down_black.svg")
+			background-size: 30px auto
+
+	.selectric-items
+		//+box-shadow
+		background: $color-white
+		+border-radius($border-radius-form)
+		border: 1px solid $color-line-light
+		+ani( ani-fadein $ani-time )
+		ul
+			font-size: _px2em(16)
+		li
+			border: 0
+			color: $color-black
+			font-size: 1em
+			+tran
+			&.selected
+				background: darken($color-bg-grey,10%)
+				font-weight: bold
+			&:hover
+				background: $color-yellow
+			&.disabled
+				+opacity(0.5)
+				border-bottom: 1px solid $color-line-light
+	
+	
+	
+.selectric-form-select
+	.selectric
+		.label
+			padding-left: $margin
+
+	
+.selectric-select-submenu
+	.selectric
+		border: 0
+		background: #F0F0F0
+		+border-radius(4em)
+		+flexbox
+		+align-items(center)
+		.label
+			font-size: _px2em(16)
+			width: 100%
+			overflow: hidden
+			text-overflow: ellipsis
+			padding: 15px 0
+			margin-right: $form-item-height
+			line-height: normal
+			height: auto
+			margin-left: 0
+			text-align: left
+			padding-left: $margin + 30px
+			position: relative
+			text-transform: uppercase
+			font-weight: bold
+			letter-spacing: 1px
+			&::before
+				content: ""
+				display: block
+				width: 30px
+				height: 100%
+				position: absolute
+				left: 15px
+				top: 0
+				+bg-contain("ico/ico_pin.svg")
+				
+		.button
+			width: $form-item-height
+			height: $form-item-height
+			background-color: transparent
+			+bg-contain("ico/ico_arrow_down_black.svg")
+			background-size: 30px auto
+
+	.selectric-items
+		//+box-shadow
+		background: $color-white
+		+border-radius( $border-radius-form )
+		border: 0px solid $color-line-light
+		+ani( ani-fadein $ani-time )
+		text-align: left
+		//top: calc( 100% + 10px )
+		ul
+			font-size: _px2em(16)
+		li
+			border: 0
+			color: $color-black
+			font-size: 1em
+			padding-left: $margin
+			padding-top: 14px
+			padding-bottom: 14px
+			&:first-child
+				+border-radius( $border-radius-form $border-radius-form 0 0 )
+			&:last-child
+				+border-radius( 0 0 $border-radius-form $border-radius-form)
+			+tran
+			&.selected
+				background: transparent
+				font-weight: bold
+			&:hover
+				background: $color-yellow
+			&.disabled
+				+opacity(0.5)
+				border-bottom: 1px solid $color-line-light
+	
+.selectric-select-preview
+	.label
+		color: $color-black
+	.selectric
+		+tran
+	.selectric-items
+		background-color: transparent
+		border: 0
+		+box-shadow(none)
+		+tran
+		li
+			color: $color-white
+			background: $color-black
+			&.selected
+				color: $color-yellow
+				font-weight: bold
+				background: $color-black
+			&:hover
+				background: rgb(69, 69, 67)
+			//highlighted
+
+	.selectric-items
+		top: auto
+		bottom: calc( 100% + 10px)
+		li
+			&:first-child
+				+border-radius( $btn-height / 2 $btn-height / 2 0 0 )
+			&:last-child
+				+border-radius( 0 0 $btn-height / 2 $btn-height / 2 )
+		
+	
+.selectric-select-filter
+	width: 170px
+	.selectric
+		border: 0
+		background: $color-bg-grey
+		+border-radius(4em)
+		+flexbox
+		+align-items(center)
+		+tran
+		&:hover
+			background: $color-line-light2
+		.label
+			font-size: _px2em(14)
+			width: 100%
+			overflow: hidden
+			text-overflow: ellipsis
+			line-height: normal
+			height: auto
+			margin-right: 40px
+			margin-left: 16px
+			text-align: left
+			padding: 10px 0
+			text-transform: uppercase
+			font-weight: bold
+			letter-spacing: 1px
+			
+		.button
+			width: 40px
+			height: 100%
+			background-color: transparent
+			+bg-contain("ico/ico_arrow_down_black.svg")
+			background-size: 30px auto
+			
+	.selectric-items
+		//+box-shadow
+		+border-radius( 18px )
+		border: 0px solid $color-line-light
+		+ani( ani-fadein $ani-time )
+		text-align: left
+		top: calc( 100% + 10px )
+		.selectric-scroll
+			+border-radius( 18px )
+			overflow: hidden
+		ul
+			font-size: _px2em(16)
+			background: $color-black
+			padding-top: 12px
+			padding-bottom: 12px
+		li
+			border: 0
+			background: $color-black
+			color: $color-white
+			font-size: 1em
+			padding-left: $margin
+			padding-top: 10px
+			padding-bottom: 10px
+			&:first-child
+				+border-radius( $border-radius-form $border-radius-form 0 0 )
+			&:last-child
+				+border-radius( 0 0 $border-radius-form $border-radius-form)
+			+tran
+			&.selected
+				//background: $color-line-dark
+				color: $color-yellow
+				font-weight: bold
+			&:hover
+				//background: $color-yellow
+				background: $color-line-dark
+				//color: $color-black
+			&.disabled
+				+opacity(0.5)
+				border-bottom: 1px solid $color-line-light
+	&.selectric-open
+		.selectric
+			background: $color-black
+			.label
+				color: $color-white
+			.button
+				+bg-img("ico/ico_arrow_down_white.svg")
+				background-size: 30px auto

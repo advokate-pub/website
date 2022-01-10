@@ -1,0 +1,212 @@
+@import "../var"
+@import "../mixin"
+
+//*
+	box-sizing: border-box
+	-moz-box-sizing: border-box
+	-webkit-box-sizing: border-box
+
+body
+	font-family: $font-family
+	font-size: $font-size
+	line-height: $line-height
+	color: $color-white
+	//-webkit-font-smoothing: antialiased
+	//-moz-osx-font-smoothing: grayscale
+	position: relative
+	background: $color-bg-blue
+	&.bg-hexahero
+		background: #010204
+		
+
+//::-webkit-input-placeholder
+	color: rgba($color_black,0.4)
+//:-ms-input-placeholder
+	color: rgba($color_black,0.4)
+
+/*Text Selection Color, text highlight */
+//:-moz-selection
+
+//::selection
+	background-color: $color-yellow
+	color: $color-black
+
+a
+	+link-color($color-link, $color-link-hover)
+	+link-deco(none)
+	+tran
+
+p
+	line-height: $line-height
+	&:last-child
+		margin-bottom: 0
+
+//h1
+//	font-size: $font-size-lg
+//h2
+//	font-size: $font-size-md
+//h3
+//	font-size: $font-size-sm
+//h4
+//	font-size: $font-size-xs
+//
+//h1, h2, h3, h4
+//	&:not(.txt-default-title)
+//		margin-bottom: 1em
+		
+//p
+	+ h1, + h2, + h3, + h4
+		margin-top: 1.5em
+
+//ol, ul
+	&:not(.nav, .b-pagination )
+		padding-left: 20px
+		text-align: left
+		> li
+			padding-left: 5px
+
+//select, input
+	-webkit-appearance: none
+	-moz-appearance: none
+	appearance: none
+
+//button
+	outline: none
+
+//input, button
+	&:focus
+		outline: none
+	//+focus-outline
+
+//.s
+	&-default
+		+bp-padding
+.container
+	+bp-min(xl)
+		width: 70vw
+		max-width: 70vw
+
+	
+$p-margin: $margin
+.p-default
+	margin-bottom: $p-margin
+	&-2x
+		margin-bottom: $p-margin*2
+	&-3x
+		margin-bottom: $p-margin*3
+	&-4x
+		margin-bottom: $p-margin*4
+	
+	+bp-max(md)
+		&-m
+			margin-bottom: $p-margin
+		&-2x-m
+			margin-bottom: $p-margin*2
+		&-3x-m
+			margin-bottom: $p-margin*3
+		&-4x-m
+			margin-bottom: $p-margin*4
+
+	//&-row:not(:last-child)
+		margin-bottom: $margin*2
+		+bp-min(md)
+			margin-bottom: $margin*4
+		+bp-min(xl)
+			margin-bottom: 100px
+
+	&-title:not(:last-child)
+		margin-bottom: $margin
+		+bp-min(md)
+			margin-bottom: 150px
+
+
+
+.container
+	&-md
+		max-width: 890px !important
+
+//.bg-grey
+	background: #F5F5F5
+
+//.hr-default
+	height: 1px
+	border: 0
+	border-left: 130px solid #FFDD35
+	background: $color-line-light
+	+bp-max($bp-default)
+		border-left-width: 80px
+		
+
+// position ----------------------------------------------
+.float-left
+	float: left
+
+.float-right
+	float: right
+
+.txt
+	&-center
+		text-align: center
+	&-left
+		text-align: left
+	&-right
+		text-align: right
+	@each $bp-name, $max-w in $container-max-widths
+		+bp-min( $bp-name)
+			&-center-#{$bp-name}
+				text-align: center
+			&-left-#{$bp-name}
+				text-align: left
+			&-right-#{$bp-name}
+				text-align: right
+		
+
+// text ----------------------------------------------
+
+
+.txt-wrap
+	display: inline-block
+
+.pos-r
+	position: relative
+.pos-a
+	position: absolute
+
+@each $bp-name, $max-w in $container-max-widths
+	.max-#{$bp-name}
+		max-width: $max-w
+		margin-left: auto
+		margin-right: auto
+		
+	
+
+//ul.list
+	&-yellow, &-dot
+		list-style: none
+		padding-left: 0
+		text-align: left
+		line-height: normal
+		li
+			padding-left: 15px
+			position: relative
+			&:not(:last-child)
+				margin-bottom: 0.4em
+			&::before
+				content: ""
+				width: 4px
+				height: 4px
+				+border-radius(50%)
+				position: absolute
+				left: 0
+				top: 0.5em
+				background: $color-yellow
+	&-dot
+		li::before
+			background: $color-black
+	&-num
+		padding-left: 18px
+		li
+			padding-left: 8px
+			line-height: normal
+			&:not(:last-child)
+				margin-bottom: 0.4em

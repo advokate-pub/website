@@ -1,0 +1,27 @@
+@import "../var"
+@import "../mixin"
+
+.b-video
+	position: relative
+	&::before
+		display: block
+		content: ""
+		width: 100%
+		padding-top: 9/16*100%
+	video
+		position: absolute
+		left: 0
+		top: 0
+		width: 100%
+		height: 100%
+	.btn-play
+		+abs-center
+		+tran
+	&:hover
+		.btn-play
+			+trf( translate(-50%,-50%) scale(1.1) )
+	
+	&.is-playing
+		.btn-play
+			+opacity(0)
+			

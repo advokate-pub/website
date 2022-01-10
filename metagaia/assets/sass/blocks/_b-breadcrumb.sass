@@ -1,0 +1,20 @@
+@import "../var"
+@import "../mixin"
+
+.b-breadcrumb
+	margin-bottom: $margin
+	.nav-breadcrumb
+		li
+			text-transform: uppercase
+			font-size: _px2em(14)
+			&:not(:last-child)
+				&::after
+					content: "/"
+					display: inline-block
+					padding-left: 10px
+					padding-right: 10px
+					color: $color-yellow2
+			a
+				+deco-line-hover
+			&:last-child
+				font-weight: bold

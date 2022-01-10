@@ -1,0 +1,166 @@
+@import "../var"
+@import "../mixin"
+
+.txt-remark
+	color: $color-red
+	font-weight: bold
+	font-size: _px2em(14)
+	margin-top: 5px
+	display: none
+.txt-sm
+	font-size: _px2em(14)
+
+.form-item
+	margin-bottom: 10px
+	line-height: normal
+	label
+		font-weight: bold
+		margin-bottom: 10px
+		margin-top: 10px
+		+ .txt-desc
+			margin-top: -5px
+			margin-bottom: 10px
+		> .txt-red
+			display: inline-block
+			margin-left: 5px
+
+	.txt-remark
+		display: none
+
+	&.is-alert
+		.txt-remark
+			margin-bottom: 16px
+		.form-input-sm
+			position: relative
+			input
+				padding-right: 38px
+				border-color: $color-red
+			&::before
+				content: ""
+				width: 28px
+				height: 28px
+				+bg-contain("ico/ico_alert.svg")
+				background-color: $color-red
+				position: absolute
+				top: 50%
+				right: 12px
+				+border-radius(50%)
+				+trf( translate(0,-50%) )
+.is-alert
+	.txt-remark
+		display: block
+
++bp-max(lg)
+	.form-item label
+		margin-bottom: 6px
+		margin-top: 6px
+		+ .txt-desc
+			margin-top: 0
+
+
+.form-input
+	width: 100%
+	border: 1px solid $color-line-light
+	+border-radius( $border-radius-form )
+	padding: 0 15px
+	height: $form-item-height
+	+focus-outline
+	+tran
+	&-ico
+		width: 100%
+		position: relative
+		margin-bottom: 12px
+		.form-input, .selectric
+			padding-left: 50px
+			
+		&::before
+			content: ""
+			width: 25px
+			height: 25px
+			+bg-contain
+			position: absolute
+			left: 13px
+			top: 50%
+			+trf( translate(0,-50%) )
+			z-index: 1
+		&.ico
+			&-user
+				&::before
+					+bg-img("ico/ico_user.svg")
+			&-email
+				&::before
+					+bg-img("ico/ico_email.svg")
+			&-lock
+				&::before
+					+bg-img("ico/ico_lock.svg")
+			&-unlock
+				&::before
+					+bg-img("ico/ico_unlock.svg")
+			&-key
+				&::before
+					+bg-img("ico/ico_key.svg")
+			&-chat
+				&::before
+					+bg-img("ico/ico_chat.svg")
+
+		
+
+.form-input-sm
+	width: 100%
+	position: relative
+	input
+		border: 0
+		width: 100%
+		height: $form-item-height
+		border: 1px solid $color-line-light
+		+border-radius( $border-radius-form )
+		+focus-outline
+		padding: 0 15px
+		+tran
+	
+// css checkbox
+.form-checkbox, .form-checkbox2
+	position: relative
+	cursor: pointer
+	+noselect
+	+flexbox
+	input
+		display: none
+	.checkmark
+		height: 20px
+		width: 20px
+		min-width: 20px
+		border: 1px solid $color-line-light
+		+border-radius( $border-radius-form )
+		position: relative
+		margin-right: 10px
+		+tran
+		&::after
+			content: ""
+			position: absolute
+			top: 42%
+			left: 50%
+			width: 7px
+			height: 12px
+			border: solid $color-black
+			border-width: 0 3px 3px 0
+			+trf( translate(-50%,-50%) rotate(45deg) scale(0.6) )
+			+opacity(0)
+			+tran
+
+	
+	&:hover input ~ .checkmark
+		background-color: darken(#fff, 5%)
+
+	input:checked ~ .checkmark
+		&:after
+			+trf( translate(-50%,-50%) rotate(45deg) scale(1) )
+			+opacity(1)
+	&-sm
+		.txt
+			font-weight: normal
+			letter-spacing: normal
+			font-size: _px2em(14)
+
+		
+	

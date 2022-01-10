@@ -1,0 +1,89 @@
+@import "../var"
+@import "../mixin"
+
+.row-txt-slider
+	> .col
+		position: relative
+		+bs-col-12(12)
+		height: auto
+	.btn-all
+		&-pc
+			display: block
+			margin-top: $margin
+			
+		&-m
+			margin-top: $margin
+			display: none
+			.btn-circle
+				justify-content: center
+				
+	+bp-max($bp-default)
+		.btn-all
+			&-pc
+				display: none
+			&-m
+				display: block
+				width: 100%
+		.expand-right
+			margin-right: -20px
+		.col
+			&-txt
+				+flexbox
+				justify-content: space-between
+				align-items: flex-end
+				padding-bottom: $margin
+	
+		.p-default-title
+			margin-bottom: 0
+		.txt-default-desc
+			padding-right: 10px
+		.row-title-ctrl
+			margin-bottom: 0
+			
+		.b-slider
+			margin-left: -$margin
+			padding-left: $margin
+			padding-right: $margin
+			overflow: visible
+
+	+bp-min($bp-default)
+		.col
+			&-txt
+				+bs-col-12(5)
+				
+			&-slider
+				+bs-col-12(7)
+		.b-ctrl
+			position: absolute
+			bottom: 0
+			right: $margin
+			.btn-prev
+				margin-bottom: 0
+		.btn-arrow
+			margin-top: 10px
+		
+		
+		.b-slider
+			padding-right: 30px
+			position: relative
+
+	+bp-min(xl)
+		.col
+			&-txt
+				+bs-col-12(4)
+				
+			&-slider
+				+bs-col-12(8)
+
+	//&-gallery
+		+bp-min(xl)
+			.col
+				&-txt
+					+bs-col-12(5)
+
+				&-slider
+					+bs-col-12(7)
+	
+		
+
+

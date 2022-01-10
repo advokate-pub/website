@@ -1,0 +1,154 @@
+@import "../var"
+@import "../mixin"
+
+
+.row-filter
+	+flexbox
+	justify-content: space-between
+	align-items: center
+	padding-bottom: $margin
+	margin-bottom: $margin-pc
+	+line-yellow
+	.bg2:not(.bg2-white) &
+		.selectric-select-filter .selectric
+			background: $color-white
+	&::before
+		border-left-width: 77px
+	.txt-filter
+		font-size: _px2em(18)
+		letter-spacing: 3px
+		text-transform: uppercase
+		font-weight: 500
+	.txt-select
+		+flexbox
+		align-items: center
+		.txt
+			margin-right: 10px
+			font-weight: bold
+	.box-top
+		display: none
+		
+	+bp-min($bp-default)
+		padding-bottom: $margin-pc
+		margin-bottom: $margin-pc + 10px
+		.box-select-wrapper
+			+flexbox
+			.txt-select
+				margin-left: 20px
+		.txt-filter
+			font-size: _px2em(20)
+			letter-spacing: 5px
+	+bp-min(xl)
+		margin-bottom: $margin-pc*2
+
+	+bp-max($bp-default)
+		padding-bottom: 10px
+		.box-select
+			+opacity(0)
+			pointer-events: none
+			+tran
+			._open_filter &
+				+opacity(1)
+				pointer-events: auto
+				
+		.box-select
+			position: fixed
+			width: 100%
+			background: $bg-overlay
+			height: 100%
+			z-index: $zindex-filter
+			+flexbox
+			justify-content: center
+			align-items: center
+			left: 0
+			top: 0
+			padding: $margin
+			&-wrapper
+				width: 100%
+				+border-radius
+				background: $color-white
+				max-width: 400px
+				padding-bottom: 15px
+		.txt-select
+			+flexbox
+			flex-direction: column
+			text-align: left
+		
+		//.box-select
+			display: none
+		.box-top
+			width: 100%
+			display: block
+			+flexbox
+			justify-content: space-between
+			align-items: center
+			padding: 8px $margin
+			padding-right: 10px
+			margin-bottom: 10px
+			+line-yellow
+			&::before
+				border-left-width: 30px
+		.txt-title
+			font-weight: bold
+			text-transform: uppercase
+			line-height: normal
+			letter-spacing: 2px
+			padding-left: 25px
+			&::before
+				content: ""
+				display: block
+				+bg-contain("ico/ico_filter.svg")
+				position: absolute
+				width: 30px
+				height: 100%
+				top: 0
+				left: 10px
+		.txt-select
+			padding: 10px $margin
+			+flexbox
+			flex-direction: row
+			text-align: left
+			.txt
+				font-weight: bold
+				min-width: 100px
+			.selectric-select-filter
+				width: 100%
+			@media (max-width: 450px)
+				flex-direction: column
+				.txt
+					width: 100%
+					margin-right: 0
+					margin-bottom: 10px
+	
+		.btn-close
+			width: 40px
+			height: 40px
+			+bg-contain("ico/ico_close2.svg")
+			background-size: 18px auto
+		.txt-filter
+			width: 100%
+			padding: 10px
+			padding-left: 35px
+			padding-right: 55px
+			position: relative
+			cursor: pointer
+			&::before, &::after
+				content: ""
+				display: block
+				+bg-contain
+				position: absolute
+				width: 32px
+				height: 100%
+				top: 0
+			&::before
+				+bg-img("ico/ico_filter.svg")
+				left: -5px
+				
+			&::after
+				+bg-img("ico/ico_arrow_down_black.svg")
+				right: 0
+
+._open_filter
+	.s-filter
+		+bp-max($bp-default)
+			z-index: $zindex-filter

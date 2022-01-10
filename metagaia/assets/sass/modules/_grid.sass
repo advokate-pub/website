@@ -1,0 +1,51 @@
+@import "../var"
+@import "../mixin"
+
+.container
+	width: 100%
+	margin-right: auto
+	margin-left: auto
+	padding-right: $margin
+	padding-left: $margin
+	@each $breakpoint, $container-max-width in $container-max-widths
+		+bp-min( $breakpoint )
+			max-width: $container-max-width
+
+.row
+	+flexbox
+	+flex-wrap(wrap)
+
+.col
+	position: relative
+	width: 100%
+	// Prevent columns from collapsing when empty
+	min-height: 1px
+	@for $i from 1 through $grid-columns
+		&-#{$i}
+			+bs-col-12( $i)
+	@each $bp in map-keys( $grid-breakpoints )
+		+bp-min($bp)
+			@for $i from 1 through $grid-columns
+				&-#{$bp}-#{$i}
+					+bs-col-12( $i)
+
+// set grid margin( container, row, col)
++grid-margin
+
+
+.offset
+	@for $i from 1 through $grid-columns
+		margin-left:  percentage( $i / $grid-columns )
+
+	@for $i from 1 through $grid-columns
+		@each $bp in map-keys( $grid-breakpoints )
+			&-#{$bp}-#{$i}
+				+bp-min($bp)
+					margin-left:  percentage( $i / $grid-columns )
+
+.row-no-gitter
+	margin-left: 0
+	margin-right: 0
+	> .col
+		padding-left: 0
+		padding-right: 0

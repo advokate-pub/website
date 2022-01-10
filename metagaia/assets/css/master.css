@@ -1,0 +1,13 @@
+/* FONTS*/
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&family=Teko:wght@700&display=swap');
+
+/* PLUGIN CSS */
+@import url('bootstrap.min.css');
+@import url('animate.css');
+/*@import url('bootstrap-select.min.css');*/
+@import url('swiper-bundle.min.css');
+
+/*@import url('jquery.mCustomScrollbar.min.css');*/
+
+/* MAIN CSS */
+@import url('../sass/style.css?v=1.1');

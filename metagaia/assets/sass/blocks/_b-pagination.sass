@@ -1,0 +1,56 @@
+@import "../var"
+@import "../mixin"
+
+	
+.b-pagination
+	+flexbox
+	flex-wrap: wrap
+	justify-content: center
+	list-style: none
+	padding-left: 0
+	margin-bottom: 0
+	
+	li
+		margin-left: 5px
+		margin-right: 5px
+		a
+			display: block
+			width: $btn-height
+			height: $btn-height
+			line-height: $btn-height
+			+border-radius(100%)
+			text-align: center
+			+tran
+			&.selected
+				background: $color-yellow
+				font-weight: bold
+			&:not(.selected)
+				&:hover
+					background: darken($color-bg-grey,3%)
+	.li-arrow
+		&:first-child
+			margin-right: 15px
+		&:last-child
+			margin-left: 15px
+	.btn-arrow
+		background: transparent
+		border: 0
+		&:hover
+			background: $color-yellow
+	+bp-max(md)
+		li
+			margin-left: 2px
+			margin-right: 2px
+			a
+				width: 40px
+				height: 40px
+				line-height: 40px
+
+		.btn-arrow
+			width: 40px
+			height: 40px
+		.li-arrow
+			&:first-child
+				margin-right: 8px
+			&:last-child
+				margin-left: 8px

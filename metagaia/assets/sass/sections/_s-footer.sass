@@ -1,0 +1,45 @@
+@import "../var"
+@import "../mixin"
+
+.s-footer
+	text-align: center
+	.container
+		position: relative
+	.logo
+		&-metagaia
+			width: 100%
+			max-width: 220px
+			margin-bottom: $margin*2
+		&-advokate
+			width: 150px
+			margin-bottom: 15px
+	.txt
+		&-copyright
+			font-size: 14px
+			color: $color-white2
+
+		&-powered-by
+			color: $color-white2
+			margin-bottom: 5px
+
+	.nav-media
+		margin-bottom: $margin*2
+	
+	+bp(m)
+		
+		padding-bottom: $margin*2
+		.logo-metagaia
+			width: 200px
+		.txt-powered-by
+			margin-top: $margin
+		.txt-copyright
+			margin-top: $margin
+			
+			
+	+bp(pc)
+		margin-bottom: 250px
+		.box-powered-by
+			position: absolute
+			top: 0
+			right: 0
+			text-align: left

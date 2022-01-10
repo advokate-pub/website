@@ -1,0 +1,45 @@
+@import "../var"
+@import "../mixin"
+
+.b-feature
+	.txt-feature
+		&-title
+			margin-bottom: 12px
+			.ico
+				width: 60px
+				height: 60px
+				position: relative
+				&::before, &::after
+					content: ""
+					display: block
+					+abs-center
+				&::before
+					width: 90%
+					height: 90%
+					+bg-gradient-radial( rgba($color-cyan,1), rgba($color-cyan,0),0%, 80% )
+					left: 20%
+					top: 20%
+					+filter( blur(20px))
+					+opacity(0.3)
+				&::after
+					width: 60%
+					height: 60%
+					+bg-gradient-radial( rgba($color-green,0.7), rgba($color-white,0),0%, 60% )
+					left: 25%
+					top: 25%
+					+filter( blur(10px))
+				img
+					width: 100%
+					
+			.txt
+				margin-left: 0.6em
+		
+		&-desc
+			font-size: 19px
+			line-height: 1.6
+		
+		+bp(pc)
+			
+			.ico
+				width: 100px
+				height: 100px

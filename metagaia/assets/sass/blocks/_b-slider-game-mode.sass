@@ -1,0 +1,196 @@
+@import "../var"
+@import "../mixin"
+
+
+.b-slider-game-mode
+	position: relative
+	.swiper-slide
+		height: auto
+	
+	.img-subtitle
+		margin-left: -9px
+
+	+bp(m)
+		.swiper-slide
+			.box-game-mode
+				.mode-m
+					+trf( scale(0.8))
+					+opacity(0)
+					+tran
+			&.swiper-slide-active
+				.box-game-mode
+					.mode-m
+						+trf( scale(1))
+						+opacity(1)
+	+bp(pc)
+		.swiper-slide
+			.box-game-mode
+				.mode
+					&-img
+						+trf-ori(10% 50%)
+						+trf( translate(-10%,10%) scale(1.1))
+						+opacity(0)
+						+tran
+					&-ico, &-title
+						+trf( translate(-50%, -50%) translateZ(0) scale(0.8))
+						+opacity(0)
+						+tran
+					&-ctx
+						+trf( translate(5%,0%))
+						+tran
+			&.swiper-slide-active
+				.box-game-mode
+					.mode
+						&-img
+							+trf( translate(0%,10%) scale(1))
+							+opacity(1)
+						&-ico, &-title
+							+opacity(1)
+							+trf( translate(-50%, -50%) translateZ(0) scale(1))
+						&-ctx
+							+trf( translate(0%,0%))
+						
+	.box-game-mode
+		position: relative
+		margin-top: $margin*2
+		+bg-cover
+		height: 100%
+		+flexbox
+		@media (max-width: 1600px)
+			padding-left: 30px
+			padding-right: 30px
+		&-wrapper
+			position: relative
+			width: 100%
+		+bp(m)
+			&::before
+				content: ""
+				position: absolute
+				width: 100%
+				height: 100%
+				left: 0
+				top: 0
+				background: rgba($color-black,0.5)
+			&-wrapper
+				position: relative
+				z-index: 1
+		+bp(pc)
+			background-size: 0
+		.mode
+			+bp(m)
+				&-ctx
+					padding: $margin $margin $margin*2
+					p
+						line-height: 1.4
+				&-bg
+					display: none
+				&-m
+					padding: 30%
+					position: relative
+					width: 100%
+					
+				&-img
+					height: 100%
+					position: absolute
+					right: 0
+					top: -10%
+					bottom: 23%
+				&-ico
+					width: 40%
+					position: absolute
+					top: 10%
+					left: $margin
+				&-title
+					position: absolute
+					top: 80%
+					left: $margin
+					height: 20%
+
+			+bp(pc)
+				&-bg
+					width: 100%
+				
+				&-title
+					+abs-center
+					top: 0
+					
+				&-ico
+					+abs-center
+					width: 20%
+				&-img
+					position: absolute
+					width: 40%
+					left: 0
+					bottom: 0
+					+trf( translate(0,10%) )
+				&-ctx
+					position: absolute
+					width: 37%
+					height: 100%
+					right: 0
+					top: 0
+					padding: $margin*2
+					+flexbox
+					flex-wrap: wrap
+					align-items: center
+
+					
+		.img-subtitle
+			display: block
+
+	.b-pagination
+		text-align: center
+		
+		.swiper-pagination-bullet
+			width: 80px
+			height: 80px
+			margin-left: 10px
+			margin-right: 10px
+			+bg-contain
+			background-color: transparent
+			cursor: pointer
+			+border-radius(0)
+			+tran
+			&:nth-child(1)
+				+bg-img("hexahero/game_mode1_ico.png")
+			&:nth-child(2)
+				+bg-img("hexahero/game_mode2_ico.png")
+			&:nth-child(3)
+				+bg-img("hexahero/game_mode3_ico.png")
+			+bp(m)
+				width: 65px
+				height: 65px
+		+bp(pc)
+			margin-bottom: $margin
+	.btn
+		&-ctrl
+			width: 70px
+			height: 70px
+			position: absolute
+			top: 50%
+			+bg-contain
+			+trf( translate(0,-50%) )
+			cursor: pointer
+			z-index: 1
+			+tran
+			&:hover
+				+trf( translate(0,-50%) scale(1.2))
+		&-prev
+			+bg-img("hexahero/ico_prev.png")
+			right: 100%
+		&-next
+			+bg-img("hexahero/ico_next.png")
+			left: 100%
+
+		@media (max-width: 1600px)
+			&-ctrl
+				width: 30px
+				height: 30px
+			&-prev
+				right: auto
+				left: 5px
+			&-next
+				right: 5px
+				left: auto
+	
+	

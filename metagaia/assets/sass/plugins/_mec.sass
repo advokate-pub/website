@@ -1,0 +1,269 @@
+@import "../var"
+@import "../mixin"
+
+
+.mec-events-meta-group-booking-shortcode
+	//background: $color-bg-grey
+	background: $color-white
+	color: $color-black
+	+border-radius
+	//+box-shadow
+	padding: $margin*2 15px
+	+bp-min($bp-default)
+		padding: $margin*2
+
+	.mec-error
+		background: transparent
+		border: 1px solid $color-red
+		color: $color-red !important
+		position: relative
+		padding-left: 60px
+		padding-top: 15px
+		padding-bottom: 15px
+		text-align: left
+		font-size: 14px
+		font-weight: bold
+		line-height: normal
+		&:last-child
+			margin-bottom: 0
+		&::before
+			content: ""
+			width: 30px
+			height: 30px
+			+border-radius(50%)
+			background-color: $color-red
+			+bg-contain("ico/ico_alert.svg")
+			position: absolute
+			left: 12px
+			top: 50%
+			+trf( translate(0,-50%))
+	
+.mec-booking-shortcode
+	text-align: left
+	h4
+		font-size: 22px
+		margin-bottom: $margin-pc
+		text-transform: uppercase
+		font-weight: 900
+		
+	button, button.mec-book-form-back-button
+		background: $color-yellow
+		color: $color-black
+		+border-radius(50em)
+		+box-shadow(none)
+		min-width: 40%
+		font-size: 16px
+		text-transform: uppercase
+		letter-spacing: 1px
+		font-weight: bold
+		+tran
+		&:hover, &:focus
+			background: $color-black
+			color: $color-yellow
+			box-shadow: none !important
+		&[type=submit]
+			font-size: 16px
+			font-weight: 900
+
+	.mec-event-ticket-name, .mec-event-ticket-price, .mec-ticket-variation-name, .mec-ticket-variation-price, label
+		color: $color-black
+		font-weight: bold
+		font-size: 16px
+		display: inline-block
+		margin-bottom: 8px !important
+		vertical-align: middle
+	
+	.mec-ticket-available-spots
+		margin-bottom: 0px !important
+	
+	//.mec-event-tickets-list
+		background: $color-bg-grey
+		padding: 10px
+		+border-radius(8px)
+		
+	.mec-event-ticket-name, .mec-ticket-name, .mec-book-form-gateway-label
+		vertical-align: middle
+		line-height: 30px
+		&::before
+			content: ""
+			width: 30px
+			height: 30px
+			+bg-contain("ico/ico_ticket.svg")
+			display: inline-block
+			vertical-align: middle
+			margin-right: 5px
+
+	.mec-ticket-name
+		color: $color-black
+		font-size: 18px
+		font-weight: bold
+		background: transparent
+		padding: 0
+		
+		
+	.mec-ticket-price, .mec-ticket-variation-price, .mec-event-ticket-price
+		font-size: 16px
+		+border-radius( 3em)
+		padding: 5px 12px 5px
+		color: $color-black
+		font-weight: bold
+		vertical-align: middle
+		display: inline-block
+		background: $color-black
+		color: $color-white
+
+	.mec-ticket-price
+		background: $color-yellow
+		color: $color-black
+
+	.mec-booking-field-required
+		font-size: 14px
+
+	
+	.mec-booking-form-container
+		&.row
+			margin-left: 0
+			margin-right: 0
+
+	.mec-book-ticket-container
+		//border: 1px solid $color-line-light
+		+border-radius(8px)
+		margin-bottom: $margin
+		background: $color-bg-grey
+		padding: 0
+		
+		padding-top: $margin
+		padding-bottom: $margin
+		
+
+	.mec-book-tickets-container
+		width: 100%
+	span.mec-event-ticket-available
+		color: $color-black
+		font-size: _px2em(14)
+		font-weight: normal
+		> span
+			font-weight: bold
+	
+	.mec-book-reg-field-mec_email, .mec-book-reg-field-name
+		width: 100%
+		margin-right: 0
+		display: block
+		
+	.nice-select, input
+		border-color: $color-line-light !important
+		color: $color-black
+		width: 100% !important
+		+border-radius($border-radius-form)
+		margin-bottom: 5px
+	label.wn-checkbox-label
+		border: 2px solid $color-black
+		&::before, &::after
+			background: $color-black
+	
+	.mec-book-form-btn-wrap
+		+flexbox
+		justify-content: space-between
+		width: 100%
+	button.mec-book-form-back-button
+		background: $color-bg-grey
+		
+	input
+		&::-webkit-input-placeholder
+			color: rgba($color_black,0.4)
+		&:-ms-input-placeholder
+			color: rgba($color_black,0.4)
+
+	.mec-book-form-price
+		width: 100%
+		border: 0
+		.mec-book-price-details
+			+flexbox
+			flex-direction: column
+			border: 0 !important
+			border-top: 1px solid $color-line-light !important
+			margin-bottom: 0
+			
+		.mec-book-price-detail
+			border: 0 !important
+			+flexbox
+			justify-content: center
+			align-items: center
+			padding-top: 8px
+			padding-bottom: 8px
+			&:nth-child(odd)
+				background: $color-bg-grey
+				
+			.mec-book-price-detail-description
+				font-size: 16px
+				color: $color-black
+				
+			.mec-book-price-detail-amount
+				font-size: 20px
+		.mec-book-price-total
+			color: $color-red
+			width: 100%
+			text-align: right
+			padding: 18px 18px
+			margin-top: 0
+			margin-bottom: $margin
+			font-weight: 900
+			border-top: 2px solid $color-line-light
+	.mec-book-form-gateway-checkout [id*=mec_do_transaction_stripe_] .mec-form-row:first-child
+		margin-right: 0
+	.mec-book-form-gateways [id*=mec_book_form_gateway_checkout] input[type=text]
+		border: 1px solid $color-line-light !important
+
+	.mec-gateway-message
+		
+		&.mec-success
+			font-size: 16px
+			padding-left: 60px
+			position: relative
+			border: 0
+			background: $color-black
+			color: $color-white
+			font-weight: bold
+			font-size: 16px
+			line-height: 1.4
+			border: 2px solid rgba($color-green,0.2)
+			+border-radius(8px)
+			&::before
+				content: ""
+				width: 35px
+				height: 35px
+				+bg-contain
+				position: absolute
+				left: 12px
+				top: 12px
+
+			&::before
+				+bg-img("ico/ico_success.svg")
+		&.mec-error
+			font-size: 14px
+			
+	.mec-book-form-gateways
+		margin-bottom: 0
+
+	.wbmec-mandatory, .mec-booking-field-required
+		color: $color-red
+		
+	.mec-book-form-gateway-label
+		margin-bottom: 0
+		width: 100%
+		margin-bottom: 8px
+		+flexbox
+		flex-basis: auto
+		align-items: center
+		text-transform: uppercase
+		&::before
+			+bg-img("ico/ico_card.svg")
+		label
+			font-size: 18px
+			vertical-align: middle
+			margin-bottom: 0 !important
+			
+	
+.mec-booking-shortcode .mec-book-form-gateways [id*=mec_book_form_gateway_checkout] input[type=text], .mec-events-meta-group-booking .mec-booking-shortcode .StripeElement
+	border: 1px solid $color-line-light !important
+

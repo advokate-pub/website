@@ -1,0 +1,201 @@
+@import "../var"
+@import "../mixin"
+
+/*! Lity - v2.3.1 - 2018-04-20
+ ** http://sorgalla.com/lity/
+ ** Copyright (c) 2015-2018 Jan Sorgalla; Licensed MIT
+
+.lity
+	z-index: 9990
+	position: fixed
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	white-space: nowrap
+	background: $bg-overlay
+	outline: none !important
+	opacity: 0
+	+tran( opacity 0.3s ease )
+	
+	&.lity-opened
+		opacity: 1
+
+	&.lity-closed
+		opacity: 0
+
+	*
+		-webkit-box-sizing: border-box
+		-moz-box-sizing: border-box
+		box-sizing: border-box
+
+.lity-wrap
+	z-index: 9990
+	position: fixed
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	text-align: center
+	outline: none !important
+	overflow-y: auto
+	&:before
+		content: ''
+		display: inline-block
+		height: 100%
+		vertical-align: middle
+		//margin-right: -0.25em
+		margin-right: 0em
+
+.lity-loader
+	z-index: 9991
+	color: #fff
+	position: absolute
+	top: 50%
+	margin-top: -0.8em
+	width: 100%
+	text-align: center
+	font-size: 14px
+	font-family: Arial, Helvetica, sans-serif
+	opacity: 0
+	+tran( opacity 0.3s ease )
+
+.lity-loading .lity-loader
+	opacity: 1
+
+.lity-container
+	z-index: 9992
+	position: relative
+	text-align: left
+	vertical-align: middle
+	display: inline-block
+	white-space: normal
+	width: 100%
+	max-width: 100%
+	max-height: 100%
+	outline: none !important
+	//padding-left: $margin
+	//padding-right: $margin
+	+tran
+
+.lity-content
+	z-index: 9993
+	width: 100%
+	+opacity(1)
+	+trf( translate(0,0%) )
+	+tran(  0.5s ease )
+
+.lity-loading .lity-content, 
+.lity-closed .lity-content
+	+opacity(0)
+	+trf( translate(0, 5%) )
+
+.lity-content:after
+	content: ''
+	position: absolute
+	left: 0
+	top: 0
+	bottom: 0
+	display: block
+	right: 0
+	width: auto
+	height: auto
+	z-index: -1
+	//+box-shadow( 0 0 20px rgba(0, 0, 0, 0.2) )
+
+.lity-close
+	z-index: 9994
+	font-size: 0
+	width: $btn-height
+	height: $btn-height
+	position: fixed
+	right: $margin
+	top: $margin
+	+box-shadow( none )
+	background-color: $color-yellow
+	
+	+border-radius(50%)
+	border: 0
+	padding: 0px
+	&::before
+		content: ""
+		+abs-center
+		+bg-contain("ico/ico_close.svg")
+		background-repeat: repeat
+	
+		width: 30px
+		height: 30px
+		
+		+tran
+	&:hover
+		&::before
+			background-position:  0 30px
+
+	+bp-min("md")
+		right: $margin*2
+		top: $margin*2
+
+	&::-moz-focus-inner
+		border: 0
+		padding: 0
+
+	&:hover, &:focus, &:active, &:visited
+		outline: none
+
+	//&:active
+		top: 1px
+
+/* Image
+
+.lity-image img
+	max-width: 100%
+	display: block
+	line-height: 0
+	border: 0
+
+/* iFrame
+
+.lity-iframe .lity-container, .lity-youtube .lity-container, .lity-vimeo .lity-container, .lity-facebookvideo .lity-container, .lity-googlemaps .lity-container
+	width: 100%
+	max-width: 1180px
+
+.lity-iframe-container
+	width: 100%
+	height: 0
+	padding-top: 9/16*100%
+	overflow: auto
+	pointer-events: auto
+	-webkit-transform: translateZ(0)
+	transform: translateZ(0)
+	-webkit-overflow-scrolling: touch
+
+	iframe
+		position: absolute
+		display: block
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		-webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.6)
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.6)
+		background: #000
+
+.lity-hide
+	display: none
+
+
+//.lity-inline
+	.lity-close
+		+bg-img("ico/ico_close_black.svg")
+
+.lity-active body
+	overflow: hidden
+
+.lity-inline .lity-content > *
+	max-height: none !important
+
+.lity-inline .lity-wrap
+	overflow: auto
+
+//.lity-inline .lity-content
+	margin: 90px 0

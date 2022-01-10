@@ -1,0 +1,150 @@
+@import "../var"
+@import "../mixin"
+
+.row-timeline
+	position: relative
+	
+	.bg-dash-line
+		position: absolute
+		left: 0
+		top: 0
+		width: 100%
+		height: 100%
+		border: 4px dashed $color-line-light
+		+border-radius(100em)
+		z-index: -1
+		&::after, &::before
+			content: ""
+			width: 50px
+			height: 50px
+			+bg-img("ico/ico_arrow_next.svg")
+			background-size: 100% 100%
+			background-color: $color-white
+			background-repeat: repeat
+			position: absolute
+			+border-radius(50%)
+			
+
+	.col
+		position: relative
+		&:not(:last-child)
+			&::before
+				content: ""
+				display: block
+				background: $color-line-light
+				position: absolute
+	.txt-circle-num
+		position: absolute
+		
+	+bp-max($bp-default)
+		margin: $margin
+		margin-top: $margin*2
+		padding: 80px $margin
+		max-width: 400px
+		.bg-dash-line
+			&::before, &::after
+				left: 50%
+			&::before
+				top: 0
+				+trf( translate(-50%,-50%) rotate(180deg))
+			&::after
+				bottom: 0
+				+trf( translate(-50%,50%) )
+		.col
+			padding-top: 30px
+			padding-bottom: 40px
+			&::before
+				width: 130px
+				height: 1px
+				left: 50%
+				bottom: 0
+				+trf( translate(-50%,-50%))
+	
+		.txt-circle-num
+			left: 2px
+			top: 50%
+			+trf( translate(-100%,-50%))
+			
+		.b-timeline
+			max-width: 200px
+			margin: auto
+	+bp-min($bp-default)
+		padding: 0px $margin
+		margin-top: 60px
+		.bg-dash-line
+			&::before, &::after
+				top: 50%
+			&::before
+				left: 0
+				+trf( translate(-50%,-50%) rotate(-90deg))
+			&::after
+				right: 0
+				+trf( translate(50%,-50%) rotate(90deg))
+		.txt-circle-num
+			left: 50%
+			bottom: 100%
+			+trf( translate(-50%,50%))
+		
+		.col
+			padding-top: 60px
+			padding-bottom: 60px
+			&::before
+				height: 130px
+				width: 1px
+				right: 0
+				top: 50%
+				+trf( translate(-50%,-50%))
+
+		.b-timeline
+			max-width: 200px
+			margin: auto
+
+.b-timeline
+	text-align: center
+	font-weight: bold
+	text-transform: uppercase
+	line-height: normal
+	.txt-timeline
+		&-name
+			letter-spacing: 2px
+			margin-bottom: $margin
+		&-date
+			background: $color-bg-grey
+			+border-radius(4em)
+			padding: 10px $margin 12px
+			letter-spacing: 2px
+	&.theme
+		&-yellow
+			.txt-timeline-date
+				color: $color-yellow2
+		&-blue
+			.txt-timeline-date
+				color: $color-blue
+		&-green
+			.txt-timeline-date
+				color: $color-green
+			
+	+bp-max($bp-default)
+		.ico-timeline
+			width: 50px
+			height: 50px
+			margin-bottom: 10px
+		.txt-timeline
+			&-name
+				font-size: _px2em(18)
+				margin-bottom: 12px
+		&-date
+			&-date
+				padding-top: 8px
+				padding-bottom: 10px
+				
+	+bp-min($bp-default)
+		.ico-timeline
+			width: 60px
+			height: 60px
+			margin-bottom: 10px
+		.txt-timeline
+			&-name
+				font-size: _px2em(20)
+			&-date
+				font-size: _px2em(18)

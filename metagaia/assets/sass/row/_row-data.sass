@@ -1,0 +1,49 @@
+@import "../var"
+@import "../mixin"
+
+.row-data
+	.col
+		text-align: center
+		position: relative
+		&:not(:first-child)
+			&::before
+				content: ""
+				width: 1px 
+				height: 150px
+				background: $color-line-light
+				position: absolute
+				left: 0
+				top: 50%
+				+trf( translate(-50%,-50%) )
+	+bp-max(md)
+		margin: 0
+		background: $color-bg-grey
+		+border-radius
+		.col
+			&:not(:first-child)
+				&::before
+					content: ""
+					width: 100%
+					height: 1px 
+					position: absolute
+					left: 50%
+					top: auto
+					+trf( translate(-50%,-50%) )
+			.b-data
+				padding-top: $margin
+				padding-bottom: $margin
+
+			
+		
+	+bp-min(md)
+		position: relative
+		&::before
+			content: ""
+			position: absolute
+			left: 0
+			top: 0
+			width: calc( 100% + (50vw - 50%)
+			height: 100%
+			background: rgba( $color-bg-grey, 0.9)
+			+border-radius( 100em 0 0 100em )
+	

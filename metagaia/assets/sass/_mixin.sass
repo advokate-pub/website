@@ -1,0 +1,712 @@
+@import "var"
+
+@mixin b
+	border: 1px solid red
+
+@mixin b2
+	border: 1px solid green
+
+@mixin b3
+	border: 1px solid blue
+
+// links ---------------------------------------------------------------------
+
+@mixin link-color($link, $hover: $link, $visit: $link, $active :$link)
+	color: $link
+	&:hover
+		color: $hover
+
+	//, &:focus
+	//&:visited
+		color: $visit
+	//&:active
+		color: $active
+
+@mixin link-deco($link: none, $hover: $link, $visit: $link, $active :$link)
+	text-decoration: $link
+	&:hover
+		text-decoration: $hover
+
+	//, &:focus
+	//&:visited
+		text-decoration: $visit
+	//&:active
+		text-decoration: $active
+
+@mixin text-stroke($prop)
+	-webkit-text-stroke: $prop
+	text-stroke: $prop
+
+// background ------------------------------------------------------------------
+
+@mixin bg-img( $link )
+	background-image: url(#{$img-dir}#{$link})
+
+@mixin bg-contain( $bg-img: null )
+	@if( $bg-img !=null)
+		background-image: url(#{$img-dir}#{$bg-img})
+	background-size: contain
+	background-repeat: no-repeat
+	background-position: center
+	
+@mixin bg-cover( $bg-img: null )
+	@if( $bg-img !=null)
+		background-image: url(#{$img-dir}#{$bg-img})
+	background-size: cover
+	background-repeat: no-repeat
+	background-position: center
+	
+	
+// background gradient  -------------------------------------------------------------
+
+@mixin bg-gradient ( $color1, $color2, $deg: 0deg, $start_pos: 0%, $end_pos: 100% )
+	background: $color1
+	background: -moz-linear-gradient($deg, $color1 $start_pos, $color2 $end_pos)
+	background: -webkit-linear-gradient($deg, $color1 $start_pos, $color2 $end_pos)
+	background: linear-gradient($deg, $color1 $start_pos, $color2 $end_pos)
+
+
+@mixin bg-gradient-radial ( $color1, $color2, $start_pos: 0%, $end_pos: 100% )
+	background: $color1
+	background: -moz-radial-gradient(circle, $color1 $start_pos, $color2 $end_pos);
+	background: -webkit-radial-gradient(circle, $color1 $start_pos, $color2 $end_pos);
+	background: radial-gradient(circle, $color1 $start_pos, r$color2 $end_pos);
+
+// ------------------------------------------------------------------
+// Breakpoint
+
+@mixin bp($point)
+	
+	// default
+	@if $point == "m"
+		@media (max-width: #{$bp-default})
+			@content
+	@else if $point == "pc"
+		@media (min-width: $bp-default + 1px)
+			@content
+
+	// nav
+	@else if $point == "nav-m"
+		@media (max-width: #{$bp-menu})
+			@content
+	@else if $point == "nav-pc"
+		@media (min-width: $bp-menu + 1px)
+			@content
+
+
+@mixin bp-max($max)
+	@media ( max-width: #{map-get($grid-breakpoints, $max)} - 1px )
+		@content
+
+@mixin bp-min($min)
+	@media ( min-width: map-get($grid-breakpoints, $min) )
+		@content
+
+@mixin bp-range($min, $max)
+	@media (min-width: map-get($grid-breakpoints, $min)) and (max-width: map-get($grid-breakpoints, $max) - 1px)
+		@content
+
+// font -------------------------------------------------------------
+@function _px2em( $px )
+	@return $px / $font-size-base + em
+
+	
+// ------------------------------------------------------------------
+@mixin navbar-toggle-colors( $bg, $color)
+	background-color: $bg
+	color: $color
+	&:hover, &:active, &:focus
+		background-color: $bg
+		color: $color
+
+@mixin abs-center()
+	position: absolute
+	left: 50%
+	top: 50%
+	+trf( translate(-50%,-50%) translateZ(0) )
+	
+@mixin abs-full()
+	position: absolute
+	left: 0
+	top: 0
+	width: 100%
+	height: 100%
+
+	
+@mixin abs-pos( $pos-x, $pos-y)
+	position: absolute
+	@if $pos-x == "left"
+		left: 0
+		right: auto
+	@else if $pos-x == "right"
+		left: auto
+		right: 0
+	@else if $pos-x == "center"
+		left: 50%
+		right: auto
+		@if $pos-y != "middle"
+			+trf(translate(-50%,0))
+		@else
+			+trf(translate(-50%,-50%))
+	@if $pos-y == "top"
+		top: 0
+		bottom: auto
+	@else if( $pos-y == "bottom")
+		top: auto
+		bottom: 0
+	@else if $pos-y == "middle"
+		top: 50%
+		bottom: auto
+		@if $pos-x != "center"
+			+trf(translate(0%,-50%))
+
+// grid ------------------------------------------------------------
+	
+// no. of col in a row (100%/n)
+
+@mixin bs-col-num($num_col)
+	-ms-flex: 0 0 percentage(1/$num_col)
+	flex: 0 0 percentage(1/$num_col)
+	// "max-width": prevent blow out ( work at IE10+ and Firefox. Chrome and Safari
+	max-width: percentage(1/$num_col)
+
+// bootstrap grid system (100%/12*n)
+@mixin bs-col-12($num_col)
+	-ms-flex: 0 0 percentage(1/$grid-columns*$num_col)
+	flex: 0 0 percentage(1/$grid-columns*$num_col)
+	// "max-width": prevent blow out ( work at IE10+ and Firefox. Chrome and Safari
+	max-width: percentage(1/$grid-columns*$num_col)
+
+@mixin grid-margin( $prop: $grid-margin, $include_tp: false )
+	.container
+		padding-right: $prop
+		padding-left: $prop
+	.row
+		margin-right: -$prop
+		margin-left: -$prop
+	.col
+		padding-right: $prop
+		padding-left: $prop
+	
+	@if $include_tp
+		+grid-margin-tp($prop)
+
+// margin-top & margin-bottom
+@mixin grid-margin-tp( $prop: $grid-margin)
+	.row
+		margin-top: -$prop
+		margin-bottom: -$prop
+	.col
+		margin-top: $prop
+		margin-bottom: $prop
+	
+// animation & keyframe ------------------------------------------------------------
+
+@mixin ani ($prop)
+	-webkit-animation: $prop
+	animation: $prop
+
+@mixin ani-name ($prop)
+	-webkit-animation-name: $prop
+	animation-name: $prop
+
+@mixin ani-duration ($prop)
+	-webkit-animation-duration: $prop
+	animation-duration: $prop
+
+@mixin ani-delay ($prop)
+	-webkit-animation-delay: $prop
+	animation-delay: $prop
+
+@mixin keyframes( $name )
+	@keyframes #{$name}
+		 @content
+	@-webkit-keyframes #{$name}
+		@content
+
+// transition ---------------------------------------------------------------------
+
+@mixin tran ($prop: $tran_time ease)
+	-webkit-transition: $prop
+	transition: $prop
+
+@mixin tran-name ($prop: $tran_time ease)
+	-webkit-transition-name: $prop
+	transition-name: $prop
+
+@mixin tran-duration ($prop: $tran_time)
+	-webkit-transition-delay: $prop
+	transition-delay: $prop
+
+@mixin tran-delay ($prop: 500ms)
+	-webkit-transition-delay: $prop
+	transition-delay: $prop
+
+
+
+
+// transform ---------------------------------------------------------------------
+@mixin trf ($prop)
+	-webkit-transform: $prop
+	-ms-transform: $prop
+	transform: $prop
+
+@mixin trf-pos( $pos_x, $pos_y)
+	-webkit-transform: translate( $pos_x, $pos_y)
+	-ms-transform: translate( $pos_x, $pos_y)
+	transform: translate( $pos_x, $pos_y)
+	
+@mixin trf-ori ($offset)
+	-webkit-transform-origin: $offset
+	-ms-transform-origin: $offset
+	transform-origin: $offset
+
+// ---------------------------------------------------------------------
+@mixin focus-outline( $prop: $focus-outline)
+	&:focus
+		outline: none
+		+box-shadow( $prop )
+
+@mixin box-shadow ($prop: $box-shadow )
+	-moz-box-shadow: $prop
+	box-shadow: $prop
+
+// ---------------------------------------------------------------------
+@mixin txt-shadow ($prop: $txt-shadow )
+	text-shadow: $prop
+
+@mixin border-radius ($prop: $border-radius)
+	-webkit-border-radius: $prop
+	-moz-border-radius: $prop
+	border-radius: $prop
+
+// ---------------------------------------------------------------------
+
+@mixin border-radius-single( $pos, $i )
+	
+	@if $pos == "lt"
+		-webkit-border-top-left-radius: $i
+		-moz-border-top-left-radius: $i
+		border-top-left-radius: $i
+
+	@else if $pos == "rt"
+		-webkit-border-top-right-radius: $i
+		-moz-border-top-right-radius: $i
+		border-top-right-radius: $i
+
+	@else if $pos == "rb"
+		-webkit-border-bottom-right-radius: $i
+		-moz-border-bottom-right-radius: $i
+		border-bottom-right-radius: $i
+
+	@else if $pos == "lb"
+		-webkit-border-bottom-left-radius: $i
+		-moz-border-bottom-left-radius: $i
+		border-bottom-left-radius: $i
+
+
+@mixin bp-border-radius( $lt:false, $rt:false, $rb:false, $lb:false )
+	@each $bp-name, $border-radius in $arr-bp-border-radius
+		+bp-min( $bp-name )
+			@if $lt
+				+border-radius-single( "lt", $border-radius )
+			@if $rt
+				+border-radius-single( "rt", $border-radius )
+			@if $rb
+				+border-radius-single( "rb", $border-radius )
+			@if  $lb
+				+border-radius-single( "lb", $border-radius )
+	
+@mixin bp-padding( $top: true, $bottom: true)
+	@each $bp-name, $padding in $arr-bp-padding
+		+bp-min( $bp-name )
+			@if $top
+				padding-top: $padding
+			@if $bottom
+				padding-bottom: $padding
+
+	
+// ---------------------------------------------------------------------
+
+
+
+// ---------------------------------------------------------------------
+
+
+@mixin opacity($prop: 0)
+	opacity: $prop
+	// IE8 filter
+	$opacity-ie: ($prop * 100);
+	filter: alpha(opacity=$opacity-ie)
+
+@mixin filter( $prop )
+	-webkit-filter: $prop
+	filter: $prop
+
+@mixin noselect()
+	-webkit-touch-callout: none
+	-webkit-user-select: none
+	-khtml-user-select: none
+	-moz-user-select: none
+	-ms-user-select: none
+	user-select: none
+
+@mixin clearfix
+	&::after
+		content: " "
+		display: block
+		clear: both
+
+// maintain ratio
+@mixin padding-top($width, $height)
+	padding-top: $height/$width*100%
+
+
+@mixin triangle( $direction, $width, $height, $color )
+	@if not index("up" "up-right" "right" "down-right" "down" "down-left" "left" "up-left", $direction)
+		@error "Direction must be 'up', 'up-right', 'right', 'down-right', 'down', 'down-left', 'left' or 'up-left'.";
+	@else if not _is-color($color)
+		@error "'#{$color}' is not a valid color for the '$color' argument in the 'triangle' mixin.";
+	@else
+		border-style: solid
+		height: 0
+		width: 0
+
+	@if $direction == "up"
+		border-color: transparent transparent $color
+		border-width: 0 ($width / 2) $height
+	@else if $direction == "up-right"
+		border-color: transparent $color transparent transparent
+		border-width: 0 $width $width 0
+	@else if $direction == "right"
+		border-color: transparent transparent transparent $color
+		border-width: ($height / 2) 0 ($height / 2) $width
+	@else if $direction == "down-right"
+		border-color: transparent transparent $color
+		border-width: 0 0 $width $width
+	@else if $direction == "down"
+		border-color: $color transparent transparent
+		border-width: $height ($width / 2) 0
+	@else if $direction == "down-left"
+		border-color: transparent transparent transparent $color
+		border-width: $width 0 0 $width
+	@else if $direction == "left"
+		border-color: transparent $color transparent transparent
+		border-width: ($height / 2) $width ($height / 2) 0
+	@else if $direction == "up-left"
+		border-color: $color transparent transparent
+		border-width: $width $width 0 0
+
+// replace text-indent: -99999px
+
+
+// flexbox
+// --------------------------------------------------
+// Flexbox SASS mixins
+// The spec: http://www.w3.org/TR/css3-flexbox
+// --------------------------------------------------
+
+// Flexbox display
+
+
+			
+@mixin flexbox()
+	display: -webkit-box
+	display: -moz-box
+	display: -ms-flexbox
+	display: -webkit-flex
+	display: flex
+
+@mixin inline-flex()
+	display: -webkit-inline-box
+	display: -moz-inline-box
+	display: -ms-inline-flexbox
+	display: -webkit-inline-flex
+	display: inline-flex
+
+// The 'flex' shorthand
+// - applies to: flex items
+// <positive-number>, initial, auto, or none
+@mixin flex($values)
+	-webkit-box-flex: $values
+	-moz-box-flex: $values
+	-webkit-flex: $values
+	-ms-flex: $values
+	flex: $values
+
+
+// Flex Flow Direction
+// - applies to: flex containers
+// row | row-reverse | column | column-reverse
+@mixin flex-direction($direction)
+	-webkit-flex-direction: $direction
+	-moz-flex-direction: $direction
+	-ms-flex-direction: $direction
+	flex-direction: $direction
+
+
+// Flex Line Wrapping
+// - applies to: flex containers
+// nowrap | wrap | wrap-reverse
+@mixin flex-wrap($wrap)
+	-webkit-flex-wrap: $wrap
+	-moz-flex-wrap: $wrap
+	-ms-flex-wrap: $wrap
+	flex-wrap: $wrap
+
+
+// Flex Direction and Wrap
+// - applies to: flex containers
+// <flex-direction> || <flex-wrap>
+@mixin flex-flow($flow)
+	-webkit-flex-flow: $flow
+	-moz-flex-flow: $flow
+	-ms-flex-flow: $flow
+	flex-flow: $flow
+
+
+// Display Order
+// - applies to: flex items
+// <integer>
+@mixin order($val)
+	-webkit-box-ordinal-group: $val
+	-moz-box-ordinal-group: $val
+	-ms-flex-order: $val
+	-webkit-order: $val
+	order: $val
+
+
+// Flex grow factor
+// - applies to: flex items
+// <number>
+@mixin flex-grow($grow)
+	-webkit-flex-grow: $grow
+	-moz-flex-grow: $grow
+	-ms-flex-grow: $grow
+	flex-grow: $grow
+
+
+// Flex shrink
+// - applies to: flex item shrink factor
+// <number> 
+@mixin flex-shrink($shrink)
+	-webkit-flex-shrink: $shrink
+	-moz-flex-shrink: $shrink
+	-ms-flex-shrink: $shrink
+	flex-shrink: $shrink
+
+
+// Flex basis
+// - the initial main size of the flex item
+// - applies to: flex itemsnitial main size of the flex item
+// <width> 
+@mixin flex-basis($width)
+	-webkit-flex-basis: $width
+	-moz-flex-basis: $width
+	-ms-flex-basis: $width
+	flex-basis: $width
+
+
+// Axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | space-between | space-around 
+@mixin justify-content($justify)
+	-webkit-justify-content: $justify
+	-moz-justify-content: $justify
+	-ms-justify-content: $justify
+	justify-content: $justify
+	-ms-flex-pack: $justify
+
+
+// Packing Flex Lines
+// - applies to: multi-line flex containers
+// flex-start | flex-end | center | space-between | space-around | stretch 
+@mixin align-content($align)
+	-webkit-align-content: $align
+	-moz-align-content: $align
+	-ms-align-content: $align
+	align-content: $align
+
+// Cross-axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | baseline | stretch 
+@mixin align-items($align)
+	-webkit-align-items: $align
+	-moz-align-items: $align
+	-ms-align-items: $align
+	-ms-flex-align: $align
+	align-items: $align
+
+// Cross-axis Alignment
+// - applies to: flex items
+// auto | flex-start | flex-end | center | baseline | stretch 
+@mixin align-self($align)
+	-webkit-align-self: $align
+	-moz-align-self: $align
+	-ms-align-self: $align
+	align-self: $align
+
+
+
+@mixin nav-hover-line
+	> a
+		position: relative
+		&::after
+			content: ""
+			display: block
+			width: 100%
+			height: 2px
+			background: $color-red
+			position: absolute
+			left: 0%
+			bottom: -8px
+			+opacity(0)
+			+trf( translate(0,150%) )
+			+tran
+		&:hover
+			&::after
+				+opacity(1)
+				+trf( translate(0,0%) )
+	&.active
+		> a
+			font-weight: 600
+			&::after
+				+opacity(1)
+				+trf( translate(0,0%) )
+
+//@mixin deco-line
+	position: relative
+	z-index: 0
+	&::before
+		content: ""
+		width: $deco-line-w
+		height: 40%
+		display: block
+		position: absolute
+		left: -0.2em
+		top: 50%
+		background: $color-yellow
+		z-index: -1
+		+trf( translate( 0,-50%))
+	
+//@mixin deco-line-hover
+	position: relative
+	display: inline-block
+	z-index: 0
+	&::before
+		content: ""
+		width: 0
+		height: 30%
+		background: $color-yellow
+		display: block
+		position: absolute
+		z-index: -1
+		left: -0.2em
+		top: 50%
+		+trf( translate( 0,-50%))
+		+tran
+
+	&:hover
+		&::before
+			width: $deco-line-w
+
+@mixin deco-border-hover
+	+border-radius
+	overflow: hidden
+	position: relative
+	&::before
+		content: ""
+		width: 100%
+		height: 100%
+		position: absolute
+		left: 0
+		top: 0
+		+noselect
+		pointer-events: none
+		border: 0px solid lighten($color-yellow, 5%)
+		+bg-fx
+		+border-radius
+		+trf( translate3d(0,0,0) )
+		+tran( 300ms)
+		z-index: 1
+	&:hover
+		&::before
+			border-width: $deco-border-w
+
+
+@mixin deco-shadow-hover
+	position: relative
+	&::after
+		content: ""
+		width: 80%
+		position: absolute
+		left: 10%
+		bottom: 0%
+		height: 20%
+		background: rgba(black,0.65)
+		z-index: -1
+		+border-radius(100em)
+		+filter(blur(20px))
+		+opacity(0)
+		+tran(1s)
+	&:hover
+		&::after
+			+filter(blur(30px))
+			+opacity(1)
+			bottom: -5%
+
+@mixin box-shadow-hover
+	&:hover
+		+box-shadow( 0px 45px 43px -4px rgba(0,0,0,0.1) )
+
+	
+@mixin ico-line
+	fill: none
+	stroke: $color-yellow
+	stroke-width: 2px
+	stroke-linecap: round
+	stroke-linejoin: round
+
+@mixin bg-fx
+	mix-blend-mode: multiply
+	
+
+@mixin line-yellow
+	position: relative
+	&::before
+		content: ""
+		width: 100%
+		height: 1px
+		border-left: 130px solid #FFDD35
+		background: $color-line-light
+		position: absolute
+		left: 0
+		bottom: 0
+
+@mixin txt-slash-pos( $pos )
+	@if( $pos == "left")
+		flex-direction: row
+		
+	@else if( $pos == "right")
+		flex-direction: row-reverse
+		&::before
+			margin-right: 0
+			margin-left: 0.2em
+
+	@else if( $pos == "center")
+		flex-direction: column-reverse
+		text-align: center
+		&::before
+			margin-top: 0.3em
+	
+
+@mixin before ($content: "")
+	&::before
+		content: $content
+		@content
+		
+@mixin after ($content: "")
+	&::after
+		content: $content
+		@content
+	

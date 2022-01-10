@@ -1,0 +1,83 @@
+@import "../var"
+@import "../mixin"
+
+//.row-default
+	//align-items: stretch
+	//justify-content: center
+	align-items: center
+
+	> .col
+		
+	+bp-min($bp-default)
+		margin-left: -$margin-pc/2
+		margin-right: -$margin-pc/2
+		.col
+			padding-left: $margin-pc/2
+			padding-right: $margin-pc/2
+	+bp-min(xl)
+		margin-left: -$margin-pc
+		margin-right: -$margin-pc
+		.col
+			padding-left: $margin-pc
+			padding-right: $margin-pc
+.row-v-center
+	align-items: center
+
+.row-card
+	margin: -$margin/2
+	.col
+		padding: $margin/2
+	+bp-min(xl)
+		margin: -$margin-pc/2
+		.col
+			padding: $margin-pc/2
+	
+	&-narrow
+		margin: -$margin/2
+		.col
+			padding: $margin/2
+
+.row-portfolio
+	.b-card-logo
+		+bp-max(md)
+			.ico-slash
+				margin-left: 0
+				margin-right: 0
+			.img-logo
+				max-width: 80px
+
+.row-wide
+	align-items: center
+	+ .row-wide
+		margin-top: 100px
+		+bp-max($bp-default)
+			margin-top: $margin
+	.col
+		&:nth-child(1)
+			.box-ctx
+				padding-right: $margin*2
+		&:nth-child(2)
+			.box-ctx
+				padding-left: $margin*2
+
+.row-form
+	margin-left: -5px
+	margin-right: -5px
+	.col
+		padding-left: 5px
+		padding-right: 5px
+
+
+.row-flex
+	+flexbox
+
+.row-btw
+	+flexbox
+	justify-content: space-between
+	&-top
+		align-items: flex-start
+	&-center
+		align-items: center
+	&-bottom
+		align-items: flex-end
+

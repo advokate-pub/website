@@ -1,0 +1,557 @@
+@import "../var"
+@import "../mixin"
+
+.form-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn)
+	width: 100%
+	
+//.form-select
+	> .dropdown-toggle
+		position: relative
+		padding: 0
+		border: 0
+		//height: $form_item_height
+		//line-height: $form_item_height - 10px
+		color: $color-black
+		
+		&:after
+			width: $form_item_height
+			height: $form_item_height
+			margin-right: 8px
+			border: 0
+			+bg-contain("dropdown-arrow-large.svg")
+			background-size: 50%
+			+tran
+			
+		&:hover
+			//color: $color_light_blue
+			border-bottom-color: $color-line-light
+			//&.bs-placeholder
+				color: $color_light_blue
+			//&::after
+				+bg-img("ico_down_blue.svg")
+		&:focus, &:active
+			outline: none !important
+			+box-shadow(none)
+	
+	.bootstrap-select > .dropdown-toggle.bs-placeholder
+		color: #999
+	.filter-option-inner-inner
+		padding-left: $form_item_height
+
+	&.show
+		// same as hover
+		//+border-radius( $form_item_height/2 $form_item_height/2 0 0 )
+		> .dropdown-toggle
+			&.bs-placeholder
+				color: $color_black
+	
+	.dropdown-menu
+		+box-shadow( 0px 8px 20px 0px rgba($color_black,0.3))
+		+border-radius( $form_item_height/2 $form_item_height/2  )
+		background: $color_white
+		color: $color_black
+		padding: 0
+		border: 0
+		margin: auto
+		margin-bottom: 5px
+		margin-top: 5px
+		letter-spacing: normal
+		min-width: inherit !important
+		width: 100%
+		max-height: 48px*5.6 !important
+		.dropdown-item
+			padding: 12px $margin
+			padding-left: $form_item_height
+			&:hover, &:focus, &:active
+				background: rgba(#609BD2,1)
+				color: $color_white
+				+tran
+			
+			&:focus
+				outline: none
+				
+			&.active, &.selected
+				background: #609BD2
+				color: $color_white
+				font-weight: bold
+//.form-select
+	&.form-select
+		&-line
+			border: 1px solid $color-line-light
+			width: 100%
+			> .dropdown-toggle:after
+				margin-top: 1px
+			.filter-option-inner-inner
+				padding-left: 24px
+			.dropdown-menu
+				.dropdown-item
+					padding-left: 24px
+		&-blue
+			border: 1px solid $color_navy
+			background: $color_navy
+			width: 100%
+			> .dropdown-toggle:after
+				margin-top: 1px
+				+bg-img("dropdown-arrow-large-white.svg")
+			.filter-option-inner-inner
+				padding-left: 24px
+				color: $color_white
+			.dropdown-menu
+				.dropdown-item
+					padding-left: 24px
+			&.disabled
+				+opacity(0.5)
+	
+
+	//.check-mark
+		display: none !important
+	
+	//.btn-group>.btn:not(:last-child):not(.dropdown-toggle)
+		+border-radius(10px)
+		&:hover, &:active, &:focus
+			border: 0
+	//.bs-select-all
+		padding: 12px 18px
+		//background: $color_light
+		font-size: 15px
+		text-align: left
+		&:hover, &:active, &:focus
+			//background: darken($color_light, 5%) !important
+			border: 0 !important
+		&:hover
+			font-weight: bold
+		
+	//.bs-deselect-all
+		display: none
+
+//.bootstrap-select
+	width: 220px \0 /*IE9 and below*/
+	vertical-align: middle 
+	// The selectpicker button
+	&:focus
+		outline: none !important
+	> .dropdown-toggle
+		position: relative
+		width: 100%
+		// necessary for proper positioning of caret in Bootstrap 4 (pushes caret to the right)
+		text-align: right
+		white-space: nowrap
+		// force caret to be vertically centered for Bootstrap 4 multi-line buttons
+		display: inline-flex
+		align-items: center
+		justify-content: space-between
+		letter-spacing: 2px
+		padding: 0px 20px
+		+border-radius(40px)
+		border: 0
+		background: $color_light
+		+tran (500ms)
+		outline: none
+		&:after
+			border: 0
+			width: 40px
+			height: 40px
+			background: url(#{$img_dir}icon/ico_arrow_down.svg) center
+			background-size: cover
+			color: transparent
+			+tran
+		&:hover, &:focus, &:active
+			background: darken($color_light,10%)
+			
+		&.bs-placeholder
+			&,
+			&:hover,
+			&:focus,
+			&:active
+				
+			&.btn-primary,
+			&.btn-secondary,
+			&.btn-success,
+			&.btn-danger,
+			&.btn-info,
+			&.btn-dark
+				&,
+				&:hover,
+				&:focus,
+				&:active
+					color: $input-alt-color-placeholder
+
+	> select
+		position: absolute !important
+		bottom: 0
+		left: 50%
+		display: block !important
+		width: 0.5px !important
+		height: 100% !important
+		padding: 0 !important
+		opacity: 0 !important
+		border: none
+		z-index: 0 !important
+
+		&.mobile-device
+			top: 0
+			left: 0
+			display: block !important
+			width: 100% !important
+			z-index: 2 !important
+
+	// Error display
+	.has-error & .dropdown-toggle,
+	.error & .dropdown-toggle,
+	&.is-invalid .dropdown-toggle,
+	.was-validated & .selectpicker:invalid + .dropdown-toggle
+		border-color: $color-red-error
+	
+
+	&.is-valid .dropdown-toggle,
+	.was-validated & .selectpicker:valid + .dropdown-toggle
+		border-color: $color-green-success
+	
+
+	&.fit-width
+		width: auto !important
+	
+
+	&:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn)
+		width: $width-default
+	
+
+	> select.mobile-device:focus + .dropdown-toggle,
+	.dropdown-toggle:focus
+		//outline: thin dotted #333333 !important
+		//outline: 5px auto -webkit-focus-ring-color !important
+		outline: none
+		//outline-offset: -2px
+
+//.show>.btn-light.dropdown-toggle
+	background: $color_green
+	color: $color_white
+	&:after
+		background-image: url(#{$img_dir}icon/ico_arrow_down_white.svg)
+		+tran(rotate(90deg))
+		
+// The selectpicker components
+//.bootstrap-select
+	&.form-control
+		margin-bottom: 0
+		padding: 0
+		border: none
+
+		:not(.input-group) > &:not([class*="col-"])
+			width: 100%
+		
+
+		&.input-group-btn
+			float: none
+			z-index: auto
+
+	.form-inline &,
+	.form-inline &.form-control:not([class*="col-"])
+		width: auto
+	
+
+	&:not(.input-group-btn),
+	&[class*="col-"]
+		float: none
+		display: inline-block
+		margin-left: 0
+	
+
+	// Forces the pull to the right, if necessary
+	&,
+	&[class*="col-"],
+	.row &[class*="col-"]
+		&.dropdown-menu-right
+			float: right
+
+	.form-inline &,
+	.form-horizontal &,
+	.form-group &
+		margin-bottom: 0
+
+	.form-group-lg &.form-control,
+	.form-group-sm &.form-control
+		padding: 0
+
+		.dropdown-toggle
+			height: 100%
+			font-size: inherit
+			line-height: inherit
+			border-radius: inherit
+
+	&.form-control-sm .dropdown-toggle,
+	&.form-control-lg .dropdown-toggle
+		font-size: inherit
+		line-height: inherit
+		border-radius: inherit
+	
+
+	&.form-control-sm .dropdown-toggle
+		padding: $input-padding-y-sm $input-padding-x-sm
+	
+
+	&.form-control-lg .dropdown-toggle
+		padding: $input-padding-y-lg $input-padding-x-lg
+	
+
+	// Set the width of the live search (and any other form control within an inline form)
+	// see https://github.com/silviomoreto/bootstrap-select/issues/685
+	.form-inline & .form-control
+		width: 100%
+	
+
+	&.disabled,
+	> .disabled
+		@include cursor-disabled()
+		&:focus
+			outline: none !important
+		
+	
+
+	&.bs-container
+		position: absolute
+		top: 0
+		left: 0
+		height: 0 !important
+		padding: 0 !important
+
+		.dropdown-menu
+			z-index: $zindex-select-dropdown
+		
+	
+
+	// The selectpicker button
+	.dropdown-toggle
+		.filter-option
+			position: static
+			top: 0
+			left: 0
+			float: left
+			height: 100%
+			width: 100%
+			text-align: left
+			overflow: hidden
+			flex: 0 1 auto // for IE10
+
+			@at-root .bs3#{&}
+				padding-right: inherit
+			
+
+			@at-root .input-group .bs3-has-addon#{&}
+				position: absolute
+				padding-top: inherit
+				padding-bottom: inherit
+				padding-left: inherit
+				float: none
+
+				.filter-option-inner
+					padding-right: inherit
+
+		.filter-option-inner-inner
+			overflow: hidden
+		
+
+		// used to expand the height of the button when inside an input group
+		.filter-expand
+			width: 0 !important
+			float: left
+			opacity: 0 !important
+			overflow: hidden
+		
+
+		.caret
+			position: absolute
+			top: 50%
+			right: 12px
+			margin-top: -2px
+			vertical-align: middle
+		
+	
+
+	.input-group &.form-control .dropdown-toggle
+		border-radius: inherit
+	
+
+	&[class*="col-"] .dropdown-toggle
+		width: 100%
+	
+	// tick 
+	.check-mark
+		position: absolute
+		display: inline-block
+		right: 20px
+		top: 35%
+		+trf( translate(-50%,0) )
+		&:after
+			content: ''
+			display: block
+			width: 0.5em
+			height: 1em
+			border-style: solid
+			border-width: 0 2px 2px 0
+			//border-color: rgba($color_black,0.2)
+			+trf( rotate(45deg) )
+	
+	// The selectpicker dropdown
+	.dropdown-menu
+		min-width: 100%
+		border: 0
+		overflow: visible !important
+		+box-shadow( 0px 0px 21px 0px rgba(0,0,0,0.3) )
+		+border-radius(10px)
+		@include box-sizing(border-box)
+		margin-top: 20px
+		padding: 3px 0
+		&::before
+			content: ""
+			width: 0
+			height: 0
+			border-style: solid
+			border-width: 0 12px 12px 12px
+			border-color: transparent transparent $color_white transparent
+			position: absolute
+			top: 0
+			left: 50%
+			+trf( translate(-50%, -80%) )
+			z-index: 2
+		> .inner
+			+border-radius(10px)
+			&:focus
+				outline: none !important
+		li
+			padding: 0px 15px
+			&:not(:last-child)
+				.dropdown-item
+					border-bottom: 1px solid $color_line
+		.dropdown-item
+			padding: 12px 10px
+			
+			&:focus, &:active, &:hover
+				background: none
+				color: $color_green2
+				outline: none
+			&.active, &.selected
+				background: none
+				color: $color_green2
+				font-weight: bold
+				
+		&.inner
+			position: static
+			float: none
+			border: 0
+			padding: 0
+			margin: 0
+			border-radius: 0
+			box-shadow: none
+		
+
+		li
+			position: relative
+
+			&.active small
+				color: $input-alt-color-placeholder !important
+			
+
+			&.disabled a
+				@include cursor-disabled()
+			a
+				cursor: pointer
+				user-select: none
+				&.opt
+					position: relative
+					padding-left: 2.25em
+				//span.check-mark
+					display: none
+				span.text
+					display: inline-block
+			
+			small
+				padding-left: 0.5em
+		&.show
+			+ani( fadein 500ms)
+		
+
+		
+
+	&.show-tick .dropdown-menu
+		//.selected span.check-mark
+			position: absolute
+			display: inline-block
+			right: 20px
+			top: 35%
+			+trf( translate(-50%,0) )
+				
+		li a span.text
+			margin-right: 34px
+		
+	
+
+	// default check mark for use without an icon font
+		
+	
+
+
+//.bootstrap-select.show-menu-arrow
+	&.open > .dropdown-toggle,
+	&.show > .dropdown-toggle
+		z-index: ($zindex-select-dropdown + 1)
+	
+
+	.dropdown-toggle .filter-option
+		&:before
+			content: ''
+			border-left: 7px solid transparent
+			border-right: 7px solid transparent
+			border-bottom: 7px solid $color-grey-arrow
+			position: absolute
+			bottom: -4px
+			left: 9px
+			display: none
+		
+
+		&:after
+			content: ''
+			border-left: 6px solid transparent
+			border-right: 6px solid transparent
+			border-bottom: 6px solid white
+			position: absolute
+			bottom: -4px
+			left: 10px
+			display: none
+		
+	
+
+	&.dropup .dropdown-toggle .filter-option
+		&:before
+			bottom: auto
+			top: -4px
+			border-top: 7px solid $color-grey-arrow
+			border-bottom: 0
+		
+
+		&:after
+			bottom: auto
+			top: -4px
+			border-top: 6px solid white
+			border-bottom: 0
+		
+	
+
+	&.pull-right .dropdown-toggle .filter-option
+		&:before
+			right: 12px
+			left: auto
+		
+
+		&:after
+			right: 13px
+			left: auto
+		
+	
+
+	&.open > .dropdown-toggle .filter-option,
+	&.show > .dropdown-toggle .filter-option
+		&:before,
+		&:after
+			display: block
+		

@@ -1,0 +1,128 @@
+@import "../var"
+@import "../mixin"
+
+.row-highlight
+	.col
+		+flexbox
+		flex-direction: column
+		justify-content: center
+	
+	&::after
+		content: ""
+		border: $deco-border-w solid $color-bg-grey
+		border-left: 0
+		position: absolute
+		z-index: -1
+		.bg2.bg2-left &
+			border-color: $color-white
+		
+	.txt-event-loc
+		margin-bottom: 5px
+	.txt-title
+		font-size: _px2em(30)
+		line-height: 1.1
+	.img
+		width: 100%
+		+border-radius
+		+box-shadow( 0px 25px 50px -20px rgba(0,0,0,0.2))
+	
+	
+	.b-download
+		margin-top: $margin*2
+		
+
+	.txt-year-season
+		padding-left: 22px
+		.txt-num
+			&::after
+				padding-left: 10px
+				padding-right: 10px
+
+	+bp-max($bp-default)
+		margin-bottom: 30px
+		&::after
+			height: 60px
+			right: $margin*3
+			width: calc( 100vw + #{$margin*3} )
+			+border-radius( 0 100em 0 0)
+			+trf( translate(0,0%) )
+			border-bottom: 0
+			top: auto
+			bottom: 0
+		.txt-event-loc
+			justify-content: center
+			margin-top: $margin
+		.txt-title
+			text-align: center
+			margin-bottom: $margin
+		.b-event-date
+			margin-bottom: $margin
+		.btn-circle
+			justify-content: center
+			flex-direction: row
+			//margin-left: auto
+			.ico
+				+trf( scale(1) )
+				&::before
+					+trf( translate(-50%,-50%) rotate(0deg) )
+			.txt
+				margin-left: -18px
+				margin-right: 0
+			&:hover
+				.txt
+					+trf( translate(10px, 0) )
+		.col-ctx
+			text-align: center
+		.txt-year-season
+			+inline-flex
+			margin-top: $margin
+			
+		.b-download
+			margin-left: auto
+			margin-right: auto
+			margin-top: $margin-pc
+	
+	+bp-min($bp-default)
+		position: relative
+		&::after
+			top: -60px
+			height: 90%
+			right: calc( 50% - #{$margin*2} )
+			width: calc( 50vw + #{$margin*2} )
+			+border-radius( 0 100em 100em 0)
+			
+		.txt-title
+			font-size: _px2em(42)
+			margin-bottom: 10px
+		.b-event-date
+			justify-content: flex-start
+			margin-bottom: $margin
+		.col-ctx
+			padding-left: $margin*4
+
+	&.row-highlight-mag
+		margin-bottom: 0
+		
+		&::after
+			top: auto
+			bottom: 0
+			+trf( translate(0%,20%) )
+			height: 70%
+			+bp-max($bp-default)
+				display: none
+			
+		.img-magazine
+			max-width: $img-max-w
+			margin-left: auto
+			margin-right: auto
+			border: 1px solid $color-bg-grey
+			.bg2:not(.bg2-white) &
+				border: 0
+	
+		+bp-max( $bp-default )
+			margin-top: $margin
+			margin-left: 0
+			margin-right: 0
+			.b-download
+				margin-top: $margin
+			

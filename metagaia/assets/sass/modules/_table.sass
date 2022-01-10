@@ -1,0 +1,42 @@
+@import "../var"
+@import "../mixin"
+
+.table-price
+	width: 100%
+		
+	+bp-max(lg)
+		margin-bottom: $margin-pc
+		.col-pass
+			display: none
+		.col
+			+bs-col-12(12)
+			&:not(:last-child)
+				margin-bottom: $margin
+	+bp-min(lg)
+		margin-top: $margin*2
+		margin-bottom: $margin*2
+		.row
+			margin-left: $margin
+			margin-right: $margin
+		.col
+			padding-right: 0
+			&-pass
+				-ms-flex: 0 0 percentage(13/100)
+				flex: 0 0 percentage(13/100)
+				max-width: percentage(13/100)
+				padding-left: 0
+			&:not(&-pass)
+				-ms-flex: 0 0 percentage(29/100)
+				flex: 0 0 percentage(29/100)
+				max-width: percentage(29/100)
+	
+	+bp-min(xl)
+		.col
+			&-pass
+				-ms-flex: 0 0 percentage(19/100)
+				flex: 0 0 percentage(19/100)
+				max-width: percentage(19/100)
+			&:not(&-pass)
+				-ms-flex: 0 0 percentage(27/100)
+				flex: 0 0 percentage(27/100)
+				max-width: percentage(27/100)
