@@ -20,9 +20,56 @@
 		align-items: center
 		margin-top: $margin
 
+	&-white
+		.btn
+			&-ctrl
+				width: 40px
+				height: 40px
+				position: absolute
+				top: 50%
+				+bg-contain
+				cursor: pointer
+				z-index: 1
+				+trf( translate(0,-50%))
+				+tran
+				outline: none
+				&:hover
+					+trf( translate(0,-50%) scale(1.2))
+			&-prev
+				+bg-img("hexahero/ico_prev.png")
+				left: $margin
+			&-next
+				+bg-img("hexahero/ico_next.png")
+				right: $margin
+
+			+bp(m)
+				&-ctrl
+					width: 30px
+					height: 30px
+				&-prev
+					left: 10px
+				&-next
+					right: 10px
+
+		.swiper-pagination
+			bottom: $margin*1.5
+			&-bullet
+				background: $color-white
+				+opacity(1)
+				+box-shadow
+				margin-left: 6px !important
+				margin-right: 6px !important
+				&-active
+					background: $color-cyan
+			+bp(pc)
+				&-bullet
+					width: 10px
+					height: 10px
+					margin-left: 10px !important
+					margin-right: 10px !important
+
 	&-upcoming
 		width: 100%
-		
 		//overflow: hidden
 		.swiper
 			&-slide
@@ -74,6 +121,7 @@
 				height: 50px
 				position: relative
 				display: inline-block
+				outline: none
 				
 				&::before, &::after
 					content: ""
@@ -100,6 +148,12 @@
 					&::before,  &::after
 						border-left-color: $color-white
 	
-			
+.b-slider-purchase
+	overflow: hidden
+	.swiper
+		&-slide
+			img
+				width: 100%
+	
 	
 				

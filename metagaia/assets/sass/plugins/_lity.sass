@@ -70,9 +70,9 @@
 	vertical-align: middle
 	display: inline-block
 	white-space: normal
-	width: 100%
-	max-width: 100%
-	max-height: 100%
+	//width: 100%
+	//max-width: 100%
+	//max-height: 100%
 	outline: none !important
 	//padding-left: $margin
 	//padding-right: $margin
@@ -108,11 +108,12 @@
 	font-size: 0
 	width: $btn-height
 	height: $btn-height
-	position: fixed
-	right: $margin
-	top: $margin
+	//position: fixed
+	position: absolute
+	right: 0
+	top: 0
 	+box-shadow( none )
-	background-color: $color-yellow
+	background: transparent
 	
 	+border-radius(50%)
 	border: 0
@@ -131,7 +132,7 @@
 		&::before
 			background-position:  0 30px
 
-	+bp-min("md")
+	//+bp-min("md")
 		right: $margin*2
 		top: $margin*2
 

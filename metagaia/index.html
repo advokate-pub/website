@@ -47,7 +47,7 @@
 								<li><a>NFT</a></li>
 								<li><a>Community</a></li>
 								<li><a>FAQs</a></li>
-								<li><a href="#"><img src="assets/images/connect-to-wallet.png" /></a></li>
+								<li><a href="#"><button class="btn btn-default">Connect To Wallet</button></a></li>
 							</ul>
 						</div>
 					</div>
@@ -63,10 +63,14 @@
 				<div class="container">
 				
 					<div class="box-planet">
-						<img class="img-planet" src="assets/images/img_planet.png" 
-							data-anchor-target=".s-hero"
-							data-center = "transform: translateY(0%) rotate(0deg)"
-							data-top-bottom = "transform: translateY(-100%) rotate(-35deg)" />
+						<div class="video-box">
+							<img class="img-planet" src="assets/images/planet_v3_1.png"/>
+							<div class="video-hi">
+								<video autoplay muted loop id="hero_video">
+									<source src="assets/images/movie_011_hd-hb2.mp4" type="video/mp4">
+								</video>
+							</div>
+						</div>
 
 						<div class="box-title" data-anchor-target=".s-hero"
 							data-center = "transform: translateX(-50%) translateY(-50%); opacity(1)"
@@ -90,7 +94,7 @@
 						data-top-bottom = "transform: translateY(-50%)" />
 				<div class="container">
 					<div class="p-default-title max-lg">
-						<h2 class="txt-default-title wow fadeInUp"><span class="txt" >WHAT IS <span class="txt-cyan">METAGAIA</span>?</span></h2>
+						<h2 class="txt-default-title wow fadeInUp"><span class="txt" >WELCOME TO <span class="txt-cyan">METAGAIA</span></span></h2>
 						<div class="txt-default-desc wow fadeInUp" data-wow-delay="0.3s">MetaGaia is the premiere immersive metaverse for play-to-earn gamers that enables a community and culture of digital ownership in a fun, captivating decentralized world.</div>
 					</div>
 					
@@ -161,7 +165,7 @@
 					data-top-bottom = "transform: translateY(-30%)" />
 				
 				<div class="container">
-					<h2 class="txt-default-title wow fadeInUp"><span class="txt">UPCOMING <span class="txt-cyan">CRYPTO GAMES</span>?</span></h2>
+					<h2 class="txt-default-title wow fadeInUp"><span class="txt">UPCOMING <span class="txt-cyan">CRYPTO GAMES</span></span></h2>
 					
 					<div class="row row-triangle wow fadeIn">
 						<div class="col col-12 col-lg-7 col-txt">
@@ -202,14 +206,16 @@
 			<section class="s-default s-what-is-meta">
 				<div class="container">
 					<div class="p-default-title max-lg">
-						<h2 class="txt-default-title wow fadeInUp"><span>WHAT IS <span class="txt-cyan">METG</span>?</span></h2>
+						<h2 class="txt-default-title wow fadeInUp"><span class="txt-cyan">METG TOKEN</span></h2>
 						<div class="txt-default-desc wow fadeInUp" data-wow-delay="0.3s">METG is the token used in our MetaGaia community. METG can be earned by staking tokens, playing games, and participating in key governance votes.</div>
 					</div>
 					
 					<div class="row row-ctx">
 						<div class="col col-12 col-img col-md-5">
 							<div class="img-coin wow fadeIn">
-								<img class="img" src="assets/images/img_coin.png" />
+								<img class="img" src="assets/images/img-coin-energy.png" />
+								<img class="img _glowing" src="assets/images/img-coin-glow.png" />
+								<img class="img" src="assets/images/img-coin-coin.png" />
 							</div>
 						</div>
 						<div class="col col-12 col-ctx col-md-7">
@@ -296,7 +302,7 @@
 				<div class="container">
 					<div class="p-default-title max-lg">
 						<h2 class="txt-default-title wow fadeInUp">Get Ready For <span class="txt-cyan">MetaGaia</span> Updates</h2>
-						<div class="b-subscription max-md"><input class="form-input input-email" placeholder="Email Address"><button class="btn btn-default">SUBSCRIBE</button></div>
+						<div class="b-subscription max-md"><input class="form-input input-email" placeholder="Email Address"><button class="btn btn-default" id="btnFormSubmit">SUBSCRIBE</button></div>
 					</div>
 				</div>
 			</section>
@@ -329,12 +335,41 @@
 		</main>
 	</div>
 
+	<!-- popup -->
+	<div class="b-popup b-popup-inline lity-hide" id="myModal">
+		<div class="box-ctx">
+			<img id="messageSuccess" style="width: 70px; height: 79px; margin: auto;" src="./assets/images/message-success.png">
+			<img id="messageWaring" style="width: 70px; height: 79px; margin: auto;" src="./assets/images/message-waring.png">
+			<div class="txt-title txt-default-title" id="messageText">Subscribe Succeed!</div>
+			<a href="https://www.metagaia.io/" target="_blank" class="txt-desc">
+			</a>
+		</div>
+	</div>
+	<!-- popup end -->
+	
 	<script src="assets/js/plugins/jquery-3.6.0.min.js"></script>
 	<script src="assets/js/plugins/bootstrap.min.js"></script>
 	<script src="assets/js/plugins/wow.min.js"></script>
 	<script src="assets/js/plugins/skrollr.min.js"></script>
 	<script src="assets/js/plugins/swiper-bundle.min.js"></script>
 	<script src="assets/js/plugins/sticky.min.js"></script>
+	<!-- popup end -->
+	<script src="assets/js/plugins/lity.min.js"></script>	
+	<!-- popup end -->
 	<script src="assets/js/main.js"></script>
 
+<!-- popup -->
+	<script>
+		var subscribe_lightbox;
+		$(".b-subscription .btn").click(function(){
+			let message = "Subscription Success";
+			
+			document.querySelector("#messageWaring").style.display = "none";
+			document.querySelector("#messageSuccess").style.display = "block";
+			document.querySelector("#messageText").innerHTML = message;
+			
+			subscribe_lightbox = lity("#myModal");
+		});
+	</script>
+<!-- popup end -->
 </body></html>

@@ -21,11 +21,9 @@
 
 /*------------------------------------------------------------------------
 
-//@import "plugins/lity"
+@import "plugins/lity"
 //@import "plugins/selectric"
 //@import "plugins/selectric-theme"
-//@import "plugins/ekko-lightbox"
-//@import "plugins/mec"	//payment gateway
 
 /*------------------------------------------------------------------------
 
@@ -78,3 +76,297 @@
 		height: 80px
 		margin-bottom: $margin
 
+.s-nft
+	position: relative
+	+bp(m)
+		padding-top: 130px
+	.box-video-card
+		//position: relative
+		+box-shadow( 0 0 300px 300px #000000 )
+		+border-radius(120px)
+		line-height: 0
+		z-index: -1
+		margin-bottom: $margin*2
+		
+	.video
+		width: 100%
+		//+box-shadow( 0 3px 45px 0 rgba($color-cyan,0.8))
+		
+	.txt-default-desc
+		text-align: left
+		line-height: normal
+		margin-bottom: $margin
+	
+	.img-title
+		max-width: 763px
+		margin-bottom: $margin*3
+		+bp(m)
+			margin-bottom: $margin*2
+	.txt-alert
+		margin-top: $margin/2
+		margin-bottom: $margin/2
+		+bp(pc)
+			margin-top: 50px
+			margin-bottom: 50px
+	.list-dot
+		text-align: left
+		display: inline-block
+		+bp(pc)
+			font-size: 22px
+
+	.b-purchase
+		margin-top: $margin
+		+bp(pc)
+			margin-top: 80px
+	.box-bar
+		margin-bottom: $margin*2
+
+	.b-slider-nft
+		margin-top: $margin*2
+		margin-bottom: $margin*2
+		+bp-min(md)
+			margin-top: $margin*3
+			margin-bottom: $margin*3
+
+.b-slider-nft
+	//overflow: visible
+	padding: 40px
+	+bp-max(md)
+		overflow: visible
+	.swiper-slide
+		width: 25%
+		img
+			+opacity(0.6)
+			+tran
+		+bp-max(md)
+			width: 50%
+
+		+bp-max(sm)
+			width: 70%
+		&-active
+			img
+				+opacity(1)
+		&:hover
+			img
+				+opacity(1)
+	.box-ntf
+		img
+			width: 100%
+			+box-shadow( 0 3px 25px 0 rgba($color-cyan,0.8))
+	.btn
+		&-ctrl
+			width: 73px
+			height: 97px
+			
+			position: absolute
+			top: 50%
+			+bg-contain
+			+trf( translate(0,-50%) )
+			cursor: pointer
+			z-index: 1
+			outline: none
+			+tran
+			&:hover
+				+trf( translate(0,-50%) scale(1.2))
+		&-prev
+			+bg-img("nft/slider-arrow-left.png")
+			right: 100%
+		&-next
+			+bg-img("nft/slider-arrow-right.png")
+			left: 100%
+		
+		&-prev
+			right: auto
+			left: 0px
+		&-next
+			right: 0px
+			left: auto
+	
+		+bp-max(md)
+			&-ctrl
+				width: 50px
+				height: 50px
+			&-prev
+				right: auto
+				left: 0px
+			&-next
+				right: 0px
+				left: auto
+			
+
+.b-purchase
+	text-align: left
+	padding: $margin
+	border: 1px solid $color-cyan
+		
+	> .row
+		margin-left: 0
+		margin-right: 0
+		> .col
+			padding: 0
+		
+			//.col-img
+				padding-right: $margin
+		.col-ctx
+			+bg-gradient( rgba($color-cyan,0.3), rgba(#0b1f7e,0.3) ,135deg )
+			padding: $margin
+			padding-top: 30px
+			+bp-min(lg)
+				padding: $margin*2
+
+	.box-ctx
+		height: inherit
+		+flexbox
+		flex-direction: column
+		justify-content: center
+
+			
+	.txt-title
+		font-size: 22px
+		line-height: 1.1
+		+txt-shadow( $txt-shadow-white2)
+		+bp(pc)
+			font-size: 36px
+	.txt-desc
+		font-size: 18px
+		margin-bottom: $margin
+		+bp(pc)
+			font-size: 24px
+			margin-bottom: $margin*2
+
+	.form-input
+		width: 100%
+		background: transparent
+		border: 0
+		border: 1px solid $color-cyan
+		margin-bottom: 10px
+		height: $btn-height
+		color: $color-white
+		padding-left: $margin
+		padding-right: $margin
+		
+	.btn-mint
+		margin-bottom: $margin
+		width: 100%
+		font-size: 18px
+		height: $btn-height
+		+bp(pc)
+			font-size: 24px
+
+	.txt-total
+		+bp-max(md)
+			margin-bottom: $margin
+	.txt-subtitle
+		margin-bottom: 8px
+		font-weight: bold
+		+bp(pc)
+			font-size: 18px
+	
+
+
+.b-bar
+	border: 1px solid $color-cyan
+	//+border-radius(3em)
+	padding: 10px
+	font-family: $font-family-title
+	font-size: 36px
+	line-height: 1
+	position: relative
+	&:not(:last-child)
+		margin-bottom: 12px
+	.bar
+		background: $color-cyan
+		+flexbox
+		justify-content: space-between
+		align-items: center
+		height: 50px
+		//+border-radius(25px)
+		+bg-gradient( rgba($color-cyan,0.6), rgba($color-cyan,0.1) ,135deg )
+	.txt, .txt-percent
+		position: absolute
+		top: 50%
+		+trf( translate(0,-42%) )
+	.txt
+		left: $margin*1.5
+		+txt-shadow( $txt-shadow-black )
+
+	.txt-percent
+		right: $margin
+
+	+bp(m)
+		font-size: 24px
+		.bar
+			height: 40px
+		.txt
+			left: 25px
+
+.bg-faq
+	.img-bg
+		position: fixed
+.faq-box
+	user-select: none
+	+bp(pc)
+		.b-bar
+			padding: 10px 20px
+.faq-q
+	margin-top: 13px
+	margin-bottom: 7px
+	max-width: calc(100% - 40px)
+.faq-more
+	right: $margin
+	position: absolute
+	top: 25px
+	height: 20px
+	width: 20px
+	.open &::after
+		width: 0%
+		
+	&::before, &::after
+		content: ""
+		display: inline-block
+		height: 4px
+		width: 100%
+		background: $color-white
+		border-radius: 1px
+		+abs-center()
+		+tran(500ms)
+	&::after
+		+trf( translate(-50%, -50%) rotate(90deg) )
+.faq-ans
+	display: none
+	overflow: hidden
+	font-family: "Barlow",sans-serif
+	line-height: normal
+	font-size: 1.3rem
+	padding-bottom: 10px
+	+bp(pc)
+		font-size: 1.8rem
+
+
+.b-popup
+	//border: 1px solid $color-cyan
+	//padding: 10px
+	max-width: 450px
+	margin: auto
+	.box-ctx
+		padding: $margin*2 $margin
+		+bg-gradient( rgba($color-cyan,0.3), rgba(#0b1f7e,0.3) ,135deg )
+		text-align: center
+	.txt-title
+		font-size: 35px
+		margin-top: 0
+		margin-bottom: $margin
+	.txt-desc
+		font-size: 20px
+	.btn
+		height: $btn-height
+		font-size: 20px
+	+bp(pc)
+		.box-ctx
+			padding: $margin*2
+		.txt
+			&-titlt
+				font-size: 28px
+			&-desc
+				font-size: 18px
+	

@@ -34,11 +34,27 @@
 			.txt-tagline
 				margin-top: -0.8em
 				font-size: 40px
-			
+	
+	.video-box
+		position: relative
+		margin: 60px
 	.img-planet
+		width: 100%
+		z-index: 1
 		@media (orientation: portrait)
 			width: 100%
 			+trf( scale(1.5))
+	.video-hi
+		height: 80.33%
+		border-radius: 50%
+		+abs-center()
+		overflow: hidden
+		z-index: 0
+		@media (orientation: portrait)
+			height: 120.5%
+		#hero_video
+			width: auto
+			height: 100%
 
 .s-hero, .s-hexahero-hero
 	.box-powered-by

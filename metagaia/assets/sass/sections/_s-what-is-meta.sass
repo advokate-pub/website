@@ -15,6 +15,8 @@
 			.img
 				+abs-center
 				width: 140%
+			._glowing
+				animation: coin-glowing 5s infinite ease-in-out
 	
 	.txt-meta-feature
 		&:not(:last-child)
@@ -78,3 +80,9 @@
 			text-align: center
 			.txt
 				font-size: 36px
+	
++keyframes( coin-glowing )
+	0%, 100%
+		+trf( translate(-50%, -50%) scale(0.83) )
+	50%
+		+trf( translate(-50%, -50%) scale(1.0) )
