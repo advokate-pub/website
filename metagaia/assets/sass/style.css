@@ -2792,7 +2792,7 @@ p {
       z-index: 1; }
   .s-select-role .box-txt-selected {
     position: absolute;
-    bottom: -15%;
+    bottom: -11%;
     width: 100%;
     display: -webkit-box;
     display: -moz-box;
@@ -2813,7 +2813,7 @@ p {
       -webkit-filter: blur(20px);
       filter: blur(20px); }
   .s-select-role .txt-selected {
-    font-size: 150px;
+    font-size: 120px;
     font-family: "Teko", sans-serif;
     text-transform: uppercase;
     width: 50%;
@@ -2948,7 +2948,8 @@ p {
     border-radius: 120px;
     line-height: 0;
     z-index: -1;
-    margin-bottom: 40px; }
+    margin-bottom: 40px; 
+    background-color:#000;}
   .s-nft .video {
     width: 100%; }
   .s-nft .txt-default-desc {
@@ -3251,5 +3252,10 @@ p {
       font-size: 28px; }
     .b-popup .txt-desc {
       font-size: 18px; } }
+
+.b-purchase hr{background-color: #fff;}
+
+.s-partners .col-img{margin-top:60px;margin-bottom:20px;}
+.s-partners .col-img img{max-width: 100%;}
 
 /*# sourceMappingURL=style.css.map */
