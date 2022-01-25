@@ -85,18 +85,19 @@
 		+box-shadow( 0 0 300px 300px #000000 )
 		+border-radius(120px)
 		line-height: 0
+		position: relative
 		z-index: -1
 		margin-bottom: $margin*2
-		
+
 	.video
 		width: 100%
 		//+box-shadow( 0 3px 45px 0 rgba($color-cyan,0.8))
-		
+
 	.txt-default-desc
 		text-align: left
 		line-height: normal
 		margin-bottom: $margin
-	
+
 	.img-title
 		max-width: 763px
 		margin-bottom: $margin*3
@@ -157,7 +158,7 @@
 		&-ctrl
 			width: 73px
 			height: 97px
-			
+
 			position: absolute
 			top: 50%
 			+bg-contain
@@ -174,14 +175,14 @@
 		&-next
 			+bg-img("nft/slider-arrow-right.png")
 			left: 100%
-		
+
 		&-prev
 			right: auto
 			left: 0px
 		&-next
 			right: 0px
 			left: auto
-	
+
 		+bp-max(md)
 			&-ctrl
 				width: 50px
@@ -192,19 +193,19 @@
 			&-next
 				right: 0px
 				left: auto
-			
+
 
 .b-purchase
 	text-align: left
 	padding: $margin
 	border: 1px solid $color-cyan
-		
+
 	> .row
 		margin-left: 0
 		margin-right: 0
 		> .col
 			padding: 0
-		
+
 			//.col-img
 				padding-right: $margin
 		.col-ctx
@@ -220,7 +221,7 @@
 		flex-direction: column
 		justify-content: center
 
-			
+
 	.txt-title
 		font-size: 22px
 		line-height: 1.1
@@ -244,7 +245,7 @@
 		color: $color-white
 		padding-left: $margin
 		padding-right: $margin
-		
+
 	.btn-mint
 		margin-bottom: $margin
 		width: 100%
@@ -261,7 +262,7 @@
 		font-weight: bold
 		+bp(pc)
 			font-size: 18px
-	
+
 
 
 .b-bar
@@ -320,7 +321,7 @@
 	width: 20px
 	.open &::after
 		width: 0%
-		
+
 	&::before, &::after
 		content: ""
 		display: inline-block
@@ -369,4 +370,3 @@
 				font-size: 28px
 			&-desc
 				font-size: 18px
-	

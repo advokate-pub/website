@@ -2951,6 +2951,7 @@ p {
     -moz-border-radius: 120px;
     border-radius: 120px;
     line-height: 0;
+    position: relative;
     z-index: -1;
     margin-bottom: 40px;
     background-color:#000;}
