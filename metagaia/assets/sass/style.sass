@@ -370,3 +370,120 @@
 				font-size: 28px
 			&-desc
 				font-size: 18px
+	
+	
+.b-popup-whitelist
+	position: fixed
+	left: 50%
+	z-index: $zindex-overlay
+	display: none
+	.box-ctx
+		+bg-gradient( rgba(#000,1), rgba(#000,0.9))
+	.txt-continue, .txt-presale
+		text-transform: uppercase
+	
+	.btn-close
+		width: 40px
+		height: 40px
+		+bg-contain("popup/btn-close.png")
+		background-size: 15px
+		position: absolute
+		top: 8px
+		right: 8px
+		cursor: pointer
+		+tran
+		&:hover
+			+trf( scale(1.1))
+	@media (max-width: 930px)
+		top: 50%
+		+trf(translate(-50%,-50%))
+		width: calc( 100% - #{$margin*2})
+		max-width: 430px 
+		.box-ctx
+			padding-bottom: 0
+			padding-left: 30px
+			padding-right: 30px
+		.txt-title
+			line-height: 1
+			font-size: 32px
+		.img-deco
+			&-pc
+				display: none
+			&-m
+				display: block
+				width: 100%
+		.btn-white
+			width: 100%
+			margin-top: 10px
+			margin-bottom: 10px
+		
+		.txt-continue, .txt-presale
+			
+			margin-top: 10px
+			margin-bottom: 10px
+			text-align: center
+			display: block
+		.img-cards
+			width: 125%
+			display: block
+			+trf( translate(-15%,0))
+		.txt-line
+			display: none
+
+	@media (min-width: 930px)
+		width: 100%
+		max-width: 900px
+		bottom: 30px
+		+trf(translate(-50%,0%))
+		+box-shadow
+		.txt-title
+			font-size: 32px
+			margin-bottom: 0
+			br
+				display: none
+		.img-deco
+			&-pc
+				display: block
+				width: 28%
+				height: auto
+			&-m
+				display: none
+		.btn-white
+			margin-left: 8px
+			margin-right: 8px
+			padding-top: 2px
+			padding-bottom: 0px
+		.box-ctx
+			width: 100%
+			position: relative
+			padding-left: 370px
+			text-align: left
+			padding-top: 10px
+			padding-bottom: 10px
+			padding-right: $margin
+			+flexbox
+			&-wrapper
+
+		.img-cards
+			width: 350px
+			display: block
+			position: absolute
+			left: 0
+			bottom: 0
+
+		
+
+		.btn-white
+			white-space: nowrap
+		.box-btn
+			+flexbox
+			align-items: center
+			margin-bottom: 10px
+		.txt
+			&-continue, &-presalse
+				font-size: 14px
+		.txt-line
+			display: inline-block
+			margin-left: 15px
+			margin-right: 15px
+

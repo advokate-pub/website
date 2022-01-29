@@ -12,6 +12,7 @@
 
     <link rel="shortcut icon" href="assets/images/favicon.ico?v=202201250001" type="image/x-icon">
 	<link href="assets/css/master.css?v=202201250001" type="text/css" rel="stylesheet">
+	<link href="assets/css/custom.css?v=202201250001" type="text/css" rel="stylesheet">
 	<!-- index.html swiper-pagination style -->
     <style>
         #swiperVideo .swiper-pagination {
@@ -46,7 +47,7 @@
 					<div class="logo-wrapper">
 						<a href="index.html">
 							<div class="box-logo">
-								<img class="img-logo" src="assets/images/logo_metagaia.png?v=202201250001" />
+								<img class="img-logo" src="assets/images/logo_metagaia2_v2.png?v=202201250001" />
 							</div>
 						</a>
 
@@ -59,7 +60,20 @@
 					<div class="main-wrapper">
 						<div class="box-ctx">
 							<ul class="nav nav-main">
-								<li><a href="index.html">About</a></li>
+								<li class="has-sub">
+									<a href="index.html">About<span class="ico-sub"></span></a>
+									<div class="box-sub collapse">
+										<ul class="nav nav-sub">
+											<li>
+												<a href="#welcome-to-metagaia">WELCOME TO METAGAIA</a><br/>
+												<a href="#upcoming-crypto-games">UPCOMING CRYPTO GAMES</a><br/>
+												<a href="#metg-token">METG TOKEN</a><br/>
+												<a href="#roadmap">ROADMAP</a><br/>
+												<a href="#partners">PARTNERS</a>
+											</li>
+										</ul>
+									</div>
+								</li>
 								<li class="has-sub">
 									<a href="#">Games<span class="ico-sub"></span></a>
 									<div class="box-sub collapse">
@@ -89,7 +103,7 @@
 						<div class="video-box">
 							<img class="img-planet" src="assets/images/planet_v3_1.png?v=202201250001"/>
 							<div class="video-hi">
-								<video autoplay muted loop id="hero_video">
+								<video playsinline autoplay muted loop id="hero_video" poster="assets/images/planet-poster.png?v=20220128">
 									<source src="https://nft-1259661131.cos.ap-hongkong.myqcloud.com/game/web/movie_011_hd-hb2.mp4?v=202201250001" type="video/mp4">
 								</video>
 							</div>
@@ -98,7 +112,7 @@
 						<div class="box-title" data-anchor-target=".s-hero"
 							data-center = "transform: translateX(-50%) translateY(-50%); opacity(1)"
 							data-top-bottom = "transform: translateX(-50%) translateY(-100%); opacity(0)">
-							<img class="img-metagaia" src="assets/images/logo_metagaia2.png?v=202201250001" />
+							<img class="img-metagaia" src="assets/images/logo_metagaia2_v2.png?v=202201250001" />
 							<div class="txt-title txt-tagline">The Ultimate Play-to-Earn Metaverse</div>
 						</div>
 					</div>
@@ -110,8 +124,14 @@
 					</div>
 				</div>
 			</section>
-
-			<section class="s-default s-what-is-metagaia">
+<section class="s-default s-trailer">
+	<video class="trail-video" autoplay loop muted playsinline preload="metadata">
+		<source src="assets/images/running-trailer-v1.mp4?20220127" type="video/mp4">
+	</video>
+	
+								<div class="v-overlay"></div>
+</section>
+			<section class="s-default s-what-is-metagaia" id="welcome-to-metagaia">
 				<img class="img-bg" src="assets/images/bg2.png?v=202201250001" data-anchor-target=".s-what-is-metagaia"
 						data-bottom-top = "transform: translateY(0%)"
 						data-top-bottom = "transform: translateY(-50%)" />
@@ -170,7 +190,7 @@
 									</div>
 									<div class="txt txt-default-subtitle">Games</div>
 								</div>
-								<div class="txt-feature-desc">Enjoy the best blockchain play-to-earn gaming experience while earning METG (the native MetaGaia token). For example, the HexaHero free-to-play game lets you buy, fuse and sell NFT Hexas that earn METG in battles with other Hexas. Also includes combat games, card games, and mini games.</div>
+								<div class="txt-feature-desc">Enjoy the best blockchain play-to-earn gaming experience while earning METG (the native MetaGaia token). The free-to-play HexaHero game lets you buy, fuse and sell NFT Hexas that can earn METG in battles with other Hexas. MetaGaia also includes combat games, card games, and mini games.</div>
 							</div>
 
 							<div class="b-feature wow fadeInRight">
@@ -213,7 +233,7 @@
 				</div>
 			</section>
 
-			<section class="s-default s-upcoming">
+			<section class="s-default s-upcoming" id="upcoming-crypto-games">
 				<img class="img-bg" src="assets/images/bg3.png?v=202201250001" data-anchor-target=".s-upcoming"
 					data-bottom-top = "transform: translateY(0%)"
 					data-top-bottom = "transform: translateY(-30%)" />
@@ -227,7 +247,7 @@
 								<div class="swiper-wrapper">
 									<div class="swiper-slide">
 										<div class="txt-default-subtitle"><span class="txt">Self-Developed Games</span></div>
-										<div class="txt-desc">HexaHero, a play-to-earn combat game where gamers battle using Hexas and Heroes. Hexas are generative robots that evolve and battle by synching with Heroes, the human pilot of the Hexa. Launching in 2022.</div>
+										<div class="txt-desc">HexaHero, a play-to-earn combat game where gamers battle using Hexas and Heroes. Hexas are generative robots that evolve and battle by syncing with Heroes, the human pilot of the Hexa. Launching in 2022.</div>
 									</div>
 									<div class="swiper-slide">
 										<div class="txt-default-subtitle"><span class="txt">Games From Our Partners</span></div>
@@ -257,7 +277,7 @@
 				</div>
 			</section>
 
-			<section class="s-default s-what-is-meta">
+			<section class="s-default s-what-is-meta" id="metg-token">
 				<div class="container">
 					<div class="p-default-title max-lg">
 						<h2 class="txt-default-title wow fadeInUp"><span class="txt-cyan">METG TOKEN</span></h2>
@@ -280,12 +300,12 @@
 
 							<div class="txt-meta-feature wow fadeInRight">
 								<div class="txt-title txt-default-subtitle" data-wow-delay="0.2s">Governance</div>
-								<div class="txt-desc">Soon after our token launch, our Reward Pool will start to receive revenues generated by MetaGaia as well as a portion of staking rewards. The Reward Pool will be governed by METG DAO.</div>
+								<div class="txt-desc">Soon after our token launch, our Reward Pool will start to receive revenues generated by MetaGaia as well as a portion of the staking rewards. The Reward Pool will be governed by METG DAO.</div>
 							</div>
 
 							<div class="txt-meta-feature wow fadeInRight">
 								<div class="txt-title txt-default-subtitle" data-wow-delay="0.4s">Staking</div>
-								<div class="txt-desc">Gamers can earn newly minted METG by staking. Minimum staking thresholds sometimes are required in order to vote and or receive various benefits and rewards in MetaGaia.</div>
+								<div class="txt-desc">Gamers can earn newly minted METG by staking. Minimum staking thresholds are sometimes required in order to vote or to receive various benefits and rewards in MetaGaia.<br/>METG will be available on partner exchanges.</div>
 							</div>
 
 
@@ -302,7 +322,7 @@
 				</div>
 			</section>
 
-			<section class="s-default s-roadmap">
+			<section class="s-default s-roadmap" id="roadmap">
 				<img class="img-bg" src="assets/images/bg4.png?v=202201250001" data-anchor-target=".s-roadmap"
 					data-bottom-top = "transform: translateY(0%)"
 					data-top-bottom = "transform: translateY(-30%)" />
@@ -320,37 +340,31 @@
 							<div class="b-time b-time1">
 								<div class="txt-time">Q3 2021</div>
 								<div class="txt-title">Platform Development</div>
-                                <ul>
-                                    <li>MetaGaia in Development</li>
-                                    <li>HexaHero in Development</li>
-                                </ul>
 							</div>
 							<div class="b-time b-time2">
 								<div class="txt-time">Q4 2021</div>
-								<div class="txt-title">Token Private Sale</div>
+								<div class="txt-title">Game NFT Public Sale</div>
 								<ul>
-									<li>Token Seed Round</li>
+									<li>Token Private Sale</li>
+									<li>Token Public Sale</li>
+									<li>HexaHero Beta Launch</li>
 								</ul>
 							</div>
 							<div class="b-time b-time3">
 								<div class="txt-time">Q1 2022</div>
-								<div class="txt-title">Token Launch & Beta Version</div>
+								<div class="txt-title">Token Launch</div>
 								<ul>
-                                    <li>Token Private Sale</li>
-                                    <li>Token Public Sale</li>
-                                    <li>HexaHero Beta Launch</li>
-                                    <li>HexaHero NFT Presale & Sale Begin</li>
-                                    <li>Brand Partnerships in Development</li>
+                                    <li>Token launched on our partners' exchange / swap platform</li>
+                                    <li>Hexa Presale</li>
+                                    <li>Hero Presale</li>
 								</ul>
 							</div>
 							<div class="b-time b-time4">
 								<div class="txt-time">Q2 2022</div>
-								<div class="txt-title">Official Game & Brand Stores Launch</div>
+								<div class="txt-title">Official Game Launch</div>
 								<ul>
-                                    <li>MetaGaia First Land Presale</li>
-                                    <li>MetaGaia Avatar Presale</li>
-                                    <li>HexaHero Official Launch</li>
-                                    <li>Brand Virtual Stores Launch</li>
+                                    <li>Hexa Sale</li>
+                                    <li>Hero Sale</li>
 								</ul>
 							</div>
 						</div>
@@ -358,37 +372,48 @@
 				</div>
 			</section>
 
-			<section class="s-default s-partners">
-				<!--
-<img class="img-bg" src="assets/images/bg3.png" data-anchor-target=".s-upcoming"
-					data-bottom-top = "transform: translateY(0%)"
-					data-top-bottom = "transform: translateY(-30%)" />
--->
-
+			<section class="s-default s-partners" id="partners">
 				<div class="container">
 					<h2 class="txt-default-title wow fadeInUp"><span class="txt">partners</h2>
 
 					<div class="row row-triangle wow fadeIn">
 						<div class="col col-6 col-lg-3 col-img">
+							<a href="http://www.asiaanimation.net/" target="_blank">
 							<img src="assets/images/partners/logo-Asia Animation Ltd.png?v=202201250001">
+							</a>
 						</div>
 						<div class="col col-6 col-lg-3 col-img">
+							<a href="https://www.enterbay.com/" target="_blank">
 							<img src="assets/images/partners/logo-Enterbay.png?v=202201250001">
+							</a>
 						</div>
 						<div class="col col-6 col-lg-3 col-img">
 							<img src="assets/images/partners/logo-Heemin Capital.png?v=202201250001">
 						</div>
 						<div class="col col-6 col-lg-3 col-img">
+							<a href="https://www.iahgames.com/" target="_blank">
 							<img src="assets/images/partners/logo-IAH Games.png?v=202201250001">
+							</a>
 						</div>
 						<div class="col col-6 col-lg-3 col-img">
+							<a href="https://soleaddicttunds.online/" target="_blank">
 							<img src="assets/images/partners/logo-Sole Addictt.png?v=202201250001">
+							</a>
 						</div>
 						<div class="col col-6 col-lg-3 col-img">
+							<a href="https://www.stormco.com.hk/" target="_blank">
 							<img src="assets/images/partners/logo-Storm.png?v=202201250001">
+							</a>
 						</div>
 						<div class="col col-6 col-lg-3 col-img">
+							<a href="http://www.vanchcard.com/en/content/home" target="_blank">
 							<img src="assets/images/partners/logo-Vanch Card.png?v=202201250001">
+							</a>
+						</div>
+						<div class="col col-6 col-lg-3 col-img">
+							<a href="https://www.legendsnft.io/index" target="_blank">
+							<img src="assets/images/partners/logo-legends.png?v=202201270001">
+							</a>
 						</div>
 					</div>
 
@@ -418,9 +443,12 @@
 						<li><a href="https://meta-gaia.medium.com/" target="_blank">
 							<img src="assets/images/ico_medium.png?v=202201250001" />
 						</a></li>
+						<li><a href="https://discord.com/invite/5xScrMPFfX" target="_blank">
+							<img src="assets/images/ico_discord.png?v=202201250001" />
+						</a></li>
 					</ul>
 
-					<img class="logo-metagaia wow fadeInUp" src="assets/images/logo_metagaia.png?v=202201250001" />
+					<img class="logo-metagaia wow fadeInUp" src="assets/images/logo_metagaia2_v2.png?v=202201250001" />
 
 					<div class="box-powered-by wow fadeInUp" data-wow-delay="0.3s">
 						<div class="txt-title txt-powered-by">POWERED BY</div>
@@ -441,7 +469,29 @@
 			<img id="messageWaring" style="width: 70px; height: 79px; margin: auto;" src="./assets/images/message-waring.png?v=202201250001">
 			<div class="txt-title txt-default-title" id="messageText">Subscribe Succeed!</div>
 			<div class="txt-desc">If you do not see the email in a few minutes, please check your “junk mail/ spam" folder. </div>
+		</div>
+	</div>
+	
+	<div class="b-popup b-popup-whitelist">
+		<div class="box-ctx">
+			<div class="box-ctx-wrapper2">
+				<button class="btn btn-close"></button>
+				<div class="txt-title">WHITELIST FOR <br><span class="txt-cyan">HEXAHERO PRESALE</span>!</div>
 
+				<div class="box-btn">
+				<img class="img-deco-pc img-deco-pc1" src="assets/images/popup/arrow-lhs.png" />
+				<img class="img-deco-m img-deco-m1" src="assets/images/popup/deco-top.png" />
+
+				<a href="https://givelab.com/hexahero/whitelist-hexa-hero-nft-sale" target="_blank" class="btn-white">whitelist now</a>
+
+				<img class="img-deco-pc img-deco-pc2" src="assets/images/popup/arrow-rhs.png" />
+				<img class="img-deco-m img-deco-m1" src="assets/images/popup/deco-bottom.png" />
+				</div>
+			</div>
+			<div>
+				<img class="img-cards" src="assets/images/popup/pop-up-card-image.png" />
+			</div>
+			
 		</div>
 	</div>
 	<!-- popup end -->
