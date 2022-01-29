@@ -2270,7 +2270,7 @@ p {
         padding-left: 40px;
         margin-top: 80px;
         margin-bottom: 80px; } }
-
+.s-partners .col-img img{max-width: 100%;}
 .s-upcoming {
   position: relative; }
   .s-upcoming .img-bg {
