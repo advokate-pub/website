@@ -318,8 +318,8 @@
 	<script src="assets/js/plugins/skrollr.min.js"></script>
 	<script src="assets/js/plugins/swiper-bundle.min.js"></script>
 	<script src="assets/js/plugins/sticky.min.js"></script>
-	<script src="assets/js/plugins/lity.min.js?v=202201290002"></script>
-	<script src="assets/js/main.js?v=202201290002"></script>
+	<script src="assets/js/plugins/lity.min.js?v=202201310003"></script>
+	<script src="assets/js/main.js?v=202201310003"></script>
 <!-- popup -->
 	<script>
 		var subscribe_lightbox;
