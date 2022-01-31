@@ -56,7 +56,7 @@
 								</li>
 								<li><a href="nft.html">NFT</a></li>
 								<li><a href="faq.html">FAQs</a></li>
-								<li><a><button class="btn btn-default" disabled>Connect Wallet</button></a></li>
+								<li><a><button class="btn btn-default" onclick="popupConnectWallet()">Connect Wallet</button></a></li>
 							</ul>
 						</div>
 					</div>
@@ -69,11 +69,11 @@
 				<img class="img-bg" src="assets/images/nft/img_bg.jpg?v=202201170014" data-anchor-target=".s-nft"
 					data-top = "transform: translateY(0%)"
 					data-top-bottom = "transform: translateY(0%)"/>
-					
+
 				<div class="container">
 					<div class="box-title wow fadeInUp">
 						<img class="img-title" src="assets/images/nft/txt_hero_nft.png?v=202201170014" />
-						
+
 						<div class="max-md box-video-card">
 							<video class="video" autoplay loop muted playsinline preload="metadata">
 								<source src="assets/images/nft/0113-3-compressed.mp4?v=20220118" type="video/mp4">
@@ -116,9 +116,9 @@
 							</div>-->
 							<div class="swiper b-slider-nft">
 								<div class="swiper-wrapper">
-									
-									
-									
+
+
+
 									<div class="swiper-slide">
 										<div class="box-ntf">
 											<img src="assets/images/nft/rarity01-common.jpg?v=202201170014" />
@@ -128,25 +128,25 @@
 										<div class="box-ntf">
 											<img src="assets/images/nft/rarity02-rare.jpg?v=202201170014" />
 										</div>
-										
+
 									</div>
 									<div class="swiper-slide">
 										<div class="box-ntf">
 											<img src="assets/images/nft/rarity03-superrare.jpg?v=202201170014" />
 										</div>
 									</div>
-									
+
 									<div class="swiper-slide">
 										<div class="box-ntf">
 											<img src="assets/images/nft/rarity04-ultrarare.jpg?v=202201170014" />
-											
+
 										</div>
 									</div>
-									
+
 									<div class="swiper-slide">
 										<div class="box-ntf">
 											<img src="assets/images/nft/rarity05-extreme.jpg?v=202201170014" />
-											
+
 										</div>
 									</div>
 								</div>
@@ -164,7 +164,7 @@
 							</ul>
 						</div>
 					</div>
-					
+
 					<div class="txt-center">
 						<div class="txt-alert wow fadeInUp">
 							<img class="img-alert" src="assets/images/img_alert.png?v=202201170014" />
@@ -176,7 +176,7 @@
 							<div class="txt txt-title">HexaHero’s <span class="txt-cyan">Hexa</span> NFT Minting – Coming Soon</div>
 						</div>
 					</div>
-						
+
 					<div class="max-lg" style="">
 						<div class="b-purchase wow fadeInUp">
 						<div class="row">
@@ -219,7 +219,7 @@
 							</div>
 						</div>
 					</div>
-					
+
 						<div class="b-purchase wow fadeInUp">
 							<div class="row">
 								<div class="col col-12 col-lg-5 col-img">
@@ -278,21 +278,21 @@
 							<img src="assets/images/ico_medium.png" />
 						</a></li>
 					</ul>
-					
+
 					<img class="logo-metagaia wow fadeInUp" src="assets/images/logo_metagaia.png" />
-					
+
 					<div class="box-powered-by wow fadeInUp" data-wow-delay="0.3s">
 						<div class="txt-title txt-powered-by">POWERED BY</div>
 						<a href="https://www.advokategroup.io/" target="_blank"><img class="logo-advokate" src="assets/images/logo_advokate.png" /></a><br>
 						<a href="https://solana.com/" target="_blank"><img class="logo-advokate" src="assets/images/logo_solana.svg" /></a>
 					</div>
-					
+
 					<div class="txt-copyright wow fadeInUp">MetaGaia © 2021, All rights reserved</div>
 				</div>
 			</footer>
 		</main>
 	</div>
-	
+
 	<div class="b-popup b-popup-inline lity-hide" id="popup_inline_confirm">
 		<div class="box-ctx">
 			<div class="txt-title txt-default-title">Congratulations! Minting Succeeded!</div>
@@ -318,18 +318,18 @@
 	<script src="assets/js/plugins/skrollr.min.js"></script>
 	<script src="assets/js/plugins/swiper-bundle.min.js"></script>
 	<script src="assets/js/plugins/sticky.min.js"></script>
-	<script src="assets/js/plugins/lity.min.js"></script>
-	<script src="assets/js/main.js"></script>
+	<script src="assets/js/plugins/lity.min.js?v=202201290002"></script>
+	<script src="assets/js/main.js?v=202201290002"></script>
 <!-- popup -->
 	<script>
 		var subscribe_lightbox;
 		$(".btn-mint").click(function(){
 			let message = "PLEASE CONNECT WALLET TO PROCEED";
-			
+
 			document.querySelector("#messageWaring").style.display = "block";
 			document.querySelector("#messageSuccess").style.display = "none";
 			document.querySelector("#messageText").innerHTML = message;
-			
+
 			subscribe_lightbox = lity("#popup_inline_connect");
 		});
 	</script>

@@ -58,7 +58,7 @@
 								</li>
 								<li><a href="nft.html">NFT</a></li>
 								<li><a href="faq.html">FAQs</a></li>
-								<li><a><button class="btn btn-default" disabled>Connect Wallet</button></a></li>
+								<li><a><button class="btn btn-default" onclick="popupConnectWallet()">Connect Wallet</button></a></li>
 							</ul>
 						</div>
 					</div>
@@ -283,6 +283,13 @@ Public Sale	25 February	1200 Heroes	0.88 SOL<br/>
 	</div>
 
 	<!-- popup -->
+    <div class="b-popup b-popup-inline lity-hide" id="myModalTips">
+        <div class="box-ctx">
+            <img style="width: 70px; height: 79px; margin: auto;" src="./assets/images/message-waring.png?v=202201290002">
+            <div class="txt-title txt-default-title" style="font-size: 25px;">this function will be available on minting day</div>
+        </div>
+    </div>
+
 	<div class="b-popup b-popup-inline lity-hide" id="popup_inline_connect">
 		<div class="box-ctx">
 			<img id="messageSuccess" style="width: 70px; height: 79px; margin: auto;" src="./assets/images/message-success.png">
@@ -321,8 +328,8 @@ Public Sale	25 February	1200 Heroes	0.88 SOL<br/>
 	<script src="assets/js/plugins/skrollr.min.js"></script>
 	<script src="assets/js/plugins/swiper-bundle.min.js"></script>
 	<script src="assets/js/plugins/sticky.min.js"></script>
-	<script src="assets/js/plugins/lity.min.js"></script>
-	<script src="assets/js/main.js"></script>
+	<script src="assets/js/plugins/lity.min.js?v=202201290002"></script>
+	<script src="assets/js/main.js?v=202201290002"></script>
 <!-- popup -->
 	<script>
 		var subscribe_lightbox;

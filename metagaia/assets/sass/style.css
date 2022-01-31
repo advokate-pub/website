@@ -3280,7 +3280,9 @@ p {
   @media (min-width: 992px) {
     .faq-ans {
       font-size: 1.8rem; } }
-
+.faq-ans span {
+  font-style: italic;
+}
 .b-popup {
   max-width: 450px;
   margin: auto; }
