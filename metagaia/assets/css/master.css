@@ -7,7 +7,7 @@
 /*@import url('bootstrap-select.min.css');*/
 @import url('swiper-bundle.min.css');
 
-/*@import url('jquery.mCustomScrollbar.min.css');*/
+@import url('jquery.mCustomScrollbar.min.css');
 
 /* MAIN CSS */
-@import url('../sass/style.css?v=202201310003');
+@import url('../sass/style.css?v=202202100001');

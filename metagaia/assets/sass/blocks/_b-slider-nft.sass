@@ -1,0 +1,68 @@
+@import "../var"
+@import "../mixin"
+
+
+.b-slider-nft
+	//overflow: visible
+	padding: 40px
+	+bp-max(md)
+		overflow: visible
+	.swiper-slide
+		width: 25%
+		img
+			+opacity(0.6)
+			+tran
+		+bp-max(md)
+			width: 50%
+
+		+bp-max(sm)
+			width: 70%
+		&-active
+			img
+				+opacity(1)
+		&:hover
+			img
+				+opacity(1)
+	.box-ntf
+		img
+			width: 100%
+			+box-shadow( 0 3px 25px 0 rgba($color-cyan,0.8))
+	.btn
+		&-ctrl
+			width: 73px
+			height: 97px
+
+			position: absolute
+			top: 50%
+			+bg-contain
+			+trf( translate(0,-50%) )
+			cursor: pointer
+			z-index: 1
+			outline: none
+			+tran
+			&:hover
+				+trf( translate(0,-50%) scale(1.2))
+		&-prev
+			+bg-img("nft/slider-arrow-left.png")
+			right: 100%
+		&-next
+			+bg-img("nft/slider-arrow-right.png")
+			left: 100%
+
+		&-prev
+			right: auto
+			left: 0px
+		&-next
+			right: 0px
+			left: auto
+
+		+bp-max(md)
+			&-ctrl
+				width: 50px
+				height: 50px
+			&-prev
+				right: auto
+				left: 0px
+			&-next
+				right: 0px
+				left: auto

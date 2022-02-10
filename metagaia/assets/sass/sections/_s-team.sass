@@ -1,0 +1,35 @@
+@import "../var"
+@import "../mixin"
+
+
+.s-team
+	padding-top: 0
+	padding-bottom: 0
+	.container
+		width: 100%
+		max-width: 1000px
+	.txt-default-title
+		text-align: center
+			
+	.row-ppl
+		margin-top: $margin*3
+		justify-content: center
+		.col
+			margin-bottom: $margin*3
+		+bp-max(lg)
+			margin-top: 30px
+			margin-left: -15px
+			margin-right: -15px
+			.col
+				padding-left: 7.5px
+				padding-right: 7.5px
+				margin-bottom: 20px
+		&1
+			margin-bottom: $margin*3
+			+bp-max(md)
+				margin-bottom: $margin*2
+		&2
+			+bp-min("xl")
+				.col:first-child
+					margin-left:  percentage( 1 / 12 / 2 )
+	

@@ -325,12 +325,26 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			setCookie('hideWhiteList', '1', 999999)
 		});
 	}
+	
+	if( $(".b-ppl").length > 0){
+		$(".b-ppl").click(function(e){
+			$(this).toggleClass("active");
+		});
+		
+		$(".b-ppl .ico-close").click(function(e){
+			$(this).removeClass("active");
+		});
+	}
 });
 
 
 
 window.onload = function() {
 	$("html").addClass("_win_load");
+	
+	if( $(".b-ppl").length > 0){
+		$(".b-ppl .box-txt").mCustomScrollbar();
+	}
 };
 
 function setCookie(c_name, value, exdays) {

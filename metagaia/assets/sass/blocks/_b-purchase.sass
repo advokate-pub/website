@@ -1,0 +1,71 @@
+@import "../var"
+@import "../mixin"
+
+
+.b-purchase
+	text-align: left
+	padding: $margin
+	border: 1px solid $color-cyan
+
+	> .row
+		margin-left: 0
+		margin-right: 0
+		> .col
+			padding: 0
+
+			//.col-img
+				padding-right: $margin
+		.col-ctx
+			+bg-gradient( rgba($color-cyan,0.3), rgba(#0b1f7e,0.3) ,135deg )
+			padding: $margin
+			padding-top: 30px
+			+bp-min(lg)
+				padding: $margin*2
+
+	.box-ctx
+		height: inherit
+		+flexbox
+		flex-direction: column
+		justify-content: center
+
+
+	.txt-title
+		font-size: 22px
+		line-height: 1.1
+		+txt-shadow( $txt-shadow-white2)
+		+bp(pc)
+			font-size: 36px
+	.txt-desc
+		font-size: 18px
+		margin-bottom: $margin
+		+bp(pc)
+			font-size: 24px
+			margin-bottom: $margin*2
+
+	.form-input
+		width: 100%
+		background: transparent
+		border: 0
+		border: 1px solid $color-cyan
+		margin-bottom: 10px
+		height: $btn-height
+		color: $color-white
+		padding-left: $margin
+		padding-right: $margin
+
+	.btn-mint
+		margin-bottom: $margin
+		width: 100%
+		font-size: 18px
+		height: $btn-height
+		+bp(pc)
+			font-size: 24px
+
+	.txt-total
+		+bp-max(md)
+			margin-bottom: $margin
+	.txt-subtitle
+		margin-bottom: 8px
+		font-weight: bold
+		+bp(pc)
+			font-size: 18px

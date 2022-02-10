@@ -1,0 +1,46 @@
+@import "../var"
+@import "../mixin"
+
+
+
+.bg-faq
+	.img-bg
+		position: fixed
+.faq-box
+	user-select: none
+	+bp(pc)
+		.b-bar
+			padding: 10px 20px
+.faq-q
+	margin-top: 13px
+	margin-bottom: 7px
+	max-width: calc(100% - 40px)
+.faq-more
+	right: $margin
+	position: absolute
+	top: 25px
+	height: 20px
+	width: 20px
+	.open &::after
+		width: 0%
+
+	&::before, &::after
+		content: ""
+		display: inline-block
+		height: 4px
+		width: 100%
+		background: $color-white
+		border-radius: 1px
+		+abs-center()
+		+tran(500ms)
+	&::after
+		+trf( translate(-50%, -50%) rotate(90deg) )
+.faq-ans
+	display: none
+	overflow: hidden
+	font-family: "Barlow",sans-serif
+	line-height: normal
+	font-size: 1.3rem
+	padding-bottom: 10px
+	+bp(pc)
+		font-size: 1.8rem

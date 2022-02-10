@@ -1,0 +1,31 @@
+@import "../var"
+@import "../mixin"
+
+
+.b-popup
+	//border: 1px solid $color-cyan
+	//padding: 10px
+	max-width: 360px
+	margin: auto
+	.box-ctx
+		padding: $margin*2 $margin
+		+bg-gradient( rgba($color-cyan,0.3), rgba(#0b1f7e,0.3) ,135deg )
+		text-align: center
+	.txt-title
+		font-size: 35px
+		margin-top: 0
+		margin-bottom: $margin
+	.txt-desc
+		font-size: 20px
+	.btn
+		height: $btn-height
+		font-size: 20px
+	+bp(pc)
+		.box-ctx
+			padding: $margin*2
+		.txt
+			&-titlt
+				font-size: 28px
+			&-desc
+				font-size: 18px
+	

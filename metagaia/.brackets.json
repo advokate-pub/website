@@ -1,0 +1,52 @@
+{
+    "sass.enabled": false,
+    "path": {
+        "assets/sass/style.sass": {
+            "sass.enabled": true,
+            "sass.options": {
+                "outputDir": "",
+                "includePaths": [],
+                "sourceComments": false,
+                "outputStyle": "nested"
+            },
+            "bigeyex.bracketsSFTPUpload./Users/shadow/shadow/project/the_mills_fabrica/_html/themillsfabrica/|changed_files": {
+                "/Users/shadow/shadow/project/the_mills_fabrica/_html/themillsfabrica/.brackets.json": 1,
+                "/Users/shadow/shadow/project/the_mills_fabrica/_html/themillsfabrica/demo.html": 1,
+                "/Users/shadow/shadow/project/the_mills_fabrica/_html/themillsfabrica/assets/sass/style.sass": 1,
+                "/Users/shadow/shadow/project/the_mills_fabrica/_html/themillsfabrica/index.html": 1,
+                "/Users/shadow/shadow/project/the_mills_fabrica/_html/themillsfabrica/assets/sass/b-popup/_b-popup-ppl.sass": 1,
+                "/Users/shadow/shadow/project/the_mills_fabrica/_html/themillsfabrica/store.html": 1,
+                "/Users/shadow/shadow/project/the_mills_fabrica/_html/themillsfabrica/coworking_space.html": 1,
+                "/Users/shadow/shadow/project/the_mills_fabrica/_html/themillsfabrica/our_team.html": 1,
+                "/Users/shadow/shadow/project/the_mills_fabrica/_html/themillsfabrica/our_partners.html": 1,
+                "/Users/shadow/shadow/project/the_mills_fabrica/_html/themillsfabrica/event_space.html": 1,
+                "/Users/shadow/shadow/project/the_mills_fabrica/_html/themillsfabrica/events.html": 1,
+                "/Users/shadow/shadow/project/the_mills_fabrica/_html/themillsfabrica/assets/sass/blocks/_b-event.sass": 1,
+                "/Users/shadow/shadow/project/the_mills_fabrica/_html/themillsfabrica/assets/sass/sections/_s-event-intro.sass": 1,
+                "/Users/shadow/shadow/project/the_mills_fabrica/_html/themillsfabrica/corporates.html": 1,
+                "/Users/shadow/shadow/project/the_mills_fabrica/_html/themillsfabrica/startup.html": 1,
+                "/Users/shadow/shadow/project/the_mills_fabrica/_html/themillsfabrica/assets/sass/style.css": 1,
+                "/Users/shadow/shadow/project/the_mills_fabrica/_html/themillsfabrica/public.html": 1,
+                "/Users/shadow/shadow/project/the_mills_fabrica/_html/themillsfabrica/event_detail.html": 1,
+                "/Users/shadow/shadow/project/the_mills_fabrica/_html/themillsfabrica/magazine.html": 1
+            },
+            "eqFTP.projectsPaths": [
+                "/Users/shadow/shadow/remote/shadow.dev12"
+            ],
+            "linting.collapsed": false,
+            "bigeyex.bracketsSFTPUpload./Users/shadow/shadow/remote/shadow.dev12/themillsfabrica/|changed_files": {
+                "/Users/shadow/shadow/remote/shadow.dev12/themillsfabrica/demo.html": 1,
+                "/Users/shadow/shadow/remote/shadow.dev12/themillsfabrica/assets/sass/blocks/_b-ppl.sass": 1,
+                "/Users/shadow/shadow/remote/shadow.dev12/themillsfabrica/assets/sass/style.sass": 1
+            },
+            "bigeyex.bracketsSFTPUpload./Users/shadow/Desktop/metagaia/_html/metagaia/|changed_files": {
+                "/Users/shadow/Desktop/metagaia/_html/metagaia/index.html": 1,
+                "/Users/shadow/Desktop/metagaia/_html/metagaia/assets/sass/style.sass": 1
+            },
+            "bigeyex.bracketsSFTPUpload./Users/shadow/shadow/remote/shadow.dev12/metagaia/|changed_files": {
+                "/Users/shadow/shadow/remote/shadow.dev12/metagaia/assets/sass/sections/_s-hero.sass": 1,
+                "/Users/shadow/shadow/remote/shadow.dev12/metagaia/assets/sass/style.sass": 1
+            }
+        }
+    }
+}

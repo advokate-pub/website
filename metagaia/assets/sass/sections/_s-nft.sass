@@ -1,0 +1,55 @@
+@import "../var"
+@import "../mixin"
+
+.s-nft
+	position: relative
+	+bp(m)
+		padding-top: 130px
+	.box-video-card
+		//position: relative
+		+box-shadow( 0 0 300px 300px #000000 )
+		+border-radius(120px)
+		line-height: 0
+		position: relative
+		z-index: -1
+		margin-bottom: $margin*2
+
+	.video
+		width: 100%
+		//+box-shadow( 0 3px 45px 0 rgba($color-cyan,0.8))
+
+	.txt-default-desc
+		text-align: left
+		line-height: normal
+		margin-bottom: $margin
+
+	.img-title
+		max-width: 763px
+		margin-bottom: $margin*3
+		+bp(m)
+			margin-bottom: $margin*2
+	.txt-alert
+		margin-top: $margin/2
+		margin-bottom: $margin/2
+		+bp(pc)
+			margin-top: 50px
+			margin-bottom: 50px
+	.list-dot
+		text-align: left
+		display: inline-block
+		+bp(pc)
+			font-size: 22px
+
+	.b-purchase
+		margin-top: $margin
+		+bp(pc)
+			margin-top: 80px
+	.box-bar
+		margin-bottom: $margin*2
+
+	.b-slider-nft
+		margin-top: $margin*2
+		margin-bottom: $margin*2
+		+bp-min(md)
+			margin-top: $margin*3
+			margin-bottom: $margin*3
